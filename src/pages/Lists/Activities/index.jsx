@@ -1,13 +1,8 @@
-import {useEffect, useState} from 'react'
-import api from '../../../services/api';
+import {useSelector} from 'react-redux';
 
 const Activities = () => {
-  const [activities, setActivities] = useState([])
-  useEffect(() => {
-    api.get('/activities')
-      .then(res => setActivities(res.data))
-  }, [])
-
+  const activities = useSelector(state => state.activities);
+  console.log(activities)
   return (
     <ul>
       {activities.map((activity, index) =>{
