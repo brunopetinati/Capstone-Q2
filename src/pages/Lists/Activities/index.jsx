@@ -1,9 +1,16 @@
+import {useSelector} from 'react-redux';
+
 const Activities = () => {
+  const activities = useSelector(state => state.activities);
+  console.log(activities)
   return (
-    <div>
-      Essa é a página que listará as atividades cadastradas pelo professor
-      (Lista de Atividades da turma)
-    </div>
+    <ul>
+      {activities.map((activity, index) =>{
+        return(
+          <li key={index}>{activity.name}--------{activity.date}</li>
+        )
+      })}
+    </ul>
   );
 };
 
