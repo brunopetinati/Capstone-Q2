@@ -1,4 +1,8 @@
-import { Switch, Link, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import api from "../services/api";
+import { setAuthentication } from "../store/modules/authentication/actions";
 
 //PAGES
 import Home from "../pages/Home/";
@@ -13,9 +17,16 @@ import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 
 const Routes = () => {
+  const dispatch = useDispatch();
+  const authentication = useSelector(({ authentication }) => authentication);
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("authToken");
+    token !== null && !authentication && dispatch(setAuthentication(true));
+  }, [authentication, dispatch]);
+
   return (
     <>
-      {/* posteriormente, as rotas serão reformuladas*/}
       <Switch>
         <Route exact path="/">
           <Home />
@@ -48,41 +59,14 @@ const Routes = () => {
           <Activities />
         </Route>
       </Switch>
-      {/* posteriormente, os links serão apagados */}
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/register">Registrar</Link>
-        </li>
-        <li>
-          <Link to="/groupregister">Cadastrar novo grupo</Link>
-        </li>
-        <li>
-          <Link to="/studentregister">Cadastrar novo aluno em seu grupo</Link>
-        </li>
-        <li>
-          <Link to="/groups">Turmas</Link>
-        </li>
-        <li>
-          <Link to="/students">Lista de alunos de determinada turma</Link>
-        </li>
-        <li>
-          <Link to="/profile">Perfil do aluno</Link>
-        </li>
-        <li>
-          <Link to="/activitiesregister">
-            Gerenciar atividades de determinado grupo
-          </Link>
-        </li>
-        <li>
-          <Link to="/activities">Atividades de determinado grupo</Link>
-        </li>
-      </ul>
+      {/* abaixo será editado no futuro */}
+      {/* {authentication ? (
+        <>
+          rotas liberadas
+        </>
+      ) : (
+        <Redirect to="/" />
+      )} */}
     </>
   );
 };
