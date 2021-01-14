@@ -4,6 +4,19 @@ import {yupResolver }from '@hookform/resolvers/yup';
 import {useDispatch} from 'react-redux';
 import {addActivityThunk} from '../../../store/modules/activities/thunk';
 import StudentsTable from '../../../components/transfer';
+import {useHistory} from 'react-router-dom';
+import {
+  Container,
+  Input,
+  MainInfo,
+  StudentInfo,
+  Form,
+  TextArea,
+  ButtonContainer,
+  Button,
+  Title,
+  Error
+} from './style';
 
 const ActivitiesRegister = () => {
   const dispatch = useDispatch();
@@ -20,21 +33,35 @@ const ActivitiesRegister = () => {
   const registerActivity = (data) =>{
      dispatch(addActivityThunk(data))
   }
+  const history = useHistory();
   return (
-    <div>
-      <form onSubmit={handleSubmit(registerActivity)} style={{display: "flex", flexDirection: "column", width: '50%', margin: "auto"}}>
-        <input name="name" placeholder="Atividade" ref={register}/>
-        {errors.activity && <div>{errors.activity.message}</div>}
-        <input name="date" type="date" ref={register}/>
-        {errors.date && <div>{errors.date.message}</div>}
-        <textarea name="description" placeholder="Descrição"/>
-        {errors.description && <div>{errors.description.message}</div>}
-        <input name="link" placeholder="Link da atividade"/>
-        {errors.link && <div>{errors.link.message}</div>}
-        <StudentsTable/>
-        <button type="submit">Cadastrar</button>
-      </form>
-    </div>
+    <Container>
+      <Form onSubmit={handleSubmit(registerActivity)} style={{display: "flex", flexDirection: "column", width: '50%', margin: "auto"}}>
+        <Title>Cadastrar Atividade</Title>
+        <MainInfo>
+          <div>
+            <Input name="name" placeholder="Atividade" ref={register} style={{width: "450px"}}/>
+            {errors.name && <Error>{errors.name.message}</Error>}
+          </div>
+          <div>
+            <Input name="date" type="date" ref={register}/>
+            {errors.date && <Error>{errors.date.message}</Error>}
+          </div>
+          
+        </MainInfo>
+        <StudentInfo>
+          <TextArea name="description" placeholder="Descrição"/>
+          {errors.description && <Error>{errors.description.message}</Error>}
+          <StudentsTable/>
+        </StudentInfo>
+        <Input name="link" placeholder="Link da atividade" style={{width: "585px"}}/>
+        {errors.link && <Error>{errors.link.message}</Error>}
+        <ButtonContainer>
+          <Button onClick={() => history.push('/activities')}>Voltar</Button>
+          <Button type="submit">Cadastrar</Button>
+        </ButtonContainer>
+      </Form>
+    </Container>
   );
 };
 

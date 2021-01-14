@@ -51,7 +51,7 @@ const StudentsTable = () =>{
             <p>Alunos</p>
             <Transfer
                 dataSource={mockData}
-                titles={['Source', 'Target']}
+                titles={['Alunos', 'Adicionados']}
                 targetKeys={targetKeys}
                 selectedKeys={selectedKeys}
                 onChange={onChange}
