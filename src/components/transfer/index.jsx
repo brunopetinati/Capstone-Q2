@@ -4,8 +4,6 @@ import {useState, useEffect} from 'react';
 import 'antd/dist/antd.css';
 
 
-
-
 const StudentsTable = () =>{
     const [students, setStudents] = useState([]);
     

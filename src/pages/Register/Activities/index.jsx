@@ -3,8 +3,8 @@ import * as yup from 'yup';
 import {yupResolver }from '@hookform/resolvers/yup';
 import {useDispatch} from 'react-redux';
 import {addActivityThunk} from '../../../store/modules/activities/thunk';
-import StudentsTable from '../../../components/transfer';
 import {useHistory} from 'react-router-dom';
+import StudentsTable from '../../../components/transfer';
 import {
   Container,
   Input,
@@ -36,7 +36,7 @@ const ActivitiesRegister = () => {
   const history = useHistory();
   return (
     <Container>
-      <Form onSubmit={handleSubmit(registerActivity)} style={{display: "flex", flexDirection: "column", width: '50%', margin: "auto"}}>
+      <Form onSubmit={handleSubmit(registerActivity)}>
         <Title>Cadastrar Atividade</Title>
         <MainInfo>
           <div>

@@ -16,6 +16,7 @@ export const Form = styled.form `
     justify-content: space-around;
     align-content: space-around;
     height: 80vh;
+    margin: auto;
 `
 export const Input = styled.input `
     border: 1px solid #707070;
