@@ -26,6 +26,7 @@ const Login = (props) => {
       .then((res) => {
         history.push("/activities");
       });
+      console.log(data)
   };
 
   return (

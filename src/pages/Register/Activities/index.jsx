@@ -1,9 +1,9 @@
 import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
 import {yupResolver }from '@hookform/resolvers/yup';
-import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import {addActivityThunk} from '../../../store/modules/activities/thunk';
+import StudentsTable from '../../../components/transfer';
 
 const ActivitiesRegister = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ const ActivitiesRegister = () => {
 
   const registerActivity = (data) =>{
      dispatch(addActivityThunk(data))
-     console.log(data)
   }
   return (
     <div>
@@ -32,6 +31,7 @@ const ActivitiesRegister = () => {
         {errors.description && <div>{errors.description.message}</div>}
         <input name="link" placeholder="Link da atividade"/>
         {errors.link && <div>{errors.link.message}</div>}
+        <StudentsTable/>
         <button type="submit">Cadastrar</button>
       </form>
     </div>
