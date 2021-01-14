@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
+import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Login = (props) => {
+  const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
 
@@ -21,11 +23,8 @@ const Login = (props) => {
   const history = useHistory();
 
   const handleForm = (data) => {
-    axios
-      .post("https://json-server-bp.herokuapp.com/login", { ...data })
-      .then((res) => {
-        history.push("/activities");
-      });
+    dispatch(loginThunk(data));
+    history.push("/activities");
   };
 
   return (
