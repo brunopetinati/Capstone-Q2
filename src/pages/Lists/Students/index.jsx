@@ -1,10 +1,14 @@
-const Students = () => {
+import { Background, Box } from "./styled";
+import Students from "../../../components/GetStudents/index";
+
+const StudentsPage = () => {
   return (
-    <div>
-      Essa é a página em que o professor verá quais alunos ele tem em uma
-      determinada turma. (Lista de alunos da turma)
-    </div>
+    <Background>
+      <Box>
+        <Students />
+      </Box>
+    </Background>
   );
 };
 
-export default Students;
+export default StudentsPage;
