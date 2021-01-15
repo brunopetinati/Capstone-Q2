@@ -1,9 +1,10 @@
+import { Background, Box } from "./styled";
+
 const Students = () => {
   return (
-    <div>
-      Essa é a página em que o professor verá quais alunos ele tem em uma
-      determinada turma. (Lista de alunos da turma)
-    </div>
+    <Background>
+      <Box></Box>
+    </Background>
   );
 };
 

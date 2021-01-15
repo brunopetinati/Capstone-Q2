@@ -14,5 +14,4 @@ export const Box = styled.div`
   background-color: white;
   width: 70vw;
   height: 75vh;
-  border-radius: 50px;
 `;
