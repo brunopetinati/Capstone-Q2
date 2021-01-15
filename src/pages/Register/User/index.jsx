@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
+import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -28,12 +29,12 @@ const User = (props) => {
 
   const history = useHistory();
 
+  const dispatch = useDispatch();
+
   const handleForm = (data) => {
-    axios
-      .post("https://json-server-bp.herokuapp.com/users", { ...data })
-      .then((res) => {
-        history.push("/login");
-      });
+    dispatch(userThunk(data));
+    console.log(data);
+    history.push("/login");
   };
 
   return (
