@@ -1,6 +1,6 @@
 import { USER_LOGIN } from "./actions-types";
 
-export const userLogin = (users) => ({
+export const userLogin = (token) => ({
   type: USER_LOGIN,
-  users,
+  token,
 });
