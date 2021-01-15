@@ -4,6 +4,7 @@ import * as yup from "yup";
 import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Container, HeaderDesktop, HeaderMobile, FormContainer } from "./style";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -28,21 +29,30 @@ const Login = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <div>
-        <input placeholder="email" name="email" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="Senha" name="password" ref={register}></input>
-        {errors.password?.message}
-        <p></p>
-      </div>
-      <div>
-        <button type="submit">Entrar</button>
-      </div>
-    </form>
+    <>
+      <HeaderMobile></HeaderMobile>
+      <HeaderDesktop></HeaderDesktop>
+      <Container>
+        <FormContainer>
+          <p>Login</p>
+          <form onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <input placeholder="email" name="email" ref={register}></input>
+              {errors.email?.message}
+            </div>
+            <p></p>
+            <div>
+              <input placeholder="Senha" name="password" ref={register}></input>
+              {errors.password?.message}
+              <p></p>
+            </div>
+            <div>
+              <button type="submit">Entrar</button>
+            </div>
+          </form>
+        </FormContainer>
+      </Container>
+    </>
   );
 };
 
