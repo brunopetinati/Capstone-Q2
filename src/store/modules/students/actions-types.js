@@ -1,1 +1,1 @@
-export const GET_STUDENTS = "@students/GET";
+export const GET_STUDENTS = "@students/ADD";

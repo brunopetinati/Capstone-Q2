@@ -11,7 +11,9 @@ export const getStudentsThunk = () => async (dispatch, getState) => {
         "Content-type": "application/json",
       },
     });
-    dispatch(getStudents(students));
+    console.log(students.data);
+    const studentsList = students.data;
+    dispatch(getStudents(studentsList));
   } catch (err) {
     console.error(err);
   }
