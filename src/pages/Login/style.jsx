@@ -28,6 +28,7 @@ const HeaderMobile = styled.div`
 `;
 
 const HeaderDesktop = styled.div`
+  background-color: #bb1e1e;
   display: flex;
   justify-content: space-around;
   padding: 10px;

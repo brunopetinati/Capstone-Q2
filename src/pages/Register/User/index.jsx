@@ -4,6 +4,7 @@ import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Container, FormContainer } from "./style";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -38,35 +39,40 @@ const User = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <div>
-        <input placeholder="Nome" name="name" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="email" name="email" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="Senha" name="password" ref={register}></input>
-        {errors.password?.message}
-        <p></p>
-      </div>
-      <div>
-        <input
-          placeholder="Confirmar senha"
-          name="passwordConfirm"
-          ref={register}
-        ></input>
-        <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
-        <p></p>
-      </div>
-      <div>
-        <button type="submit">Entrar</button>
-      </div>
-    </form>
+    <Container>
+      <FormContainer>
+        <p>Cadastro</p>
+        <form onSubmit={handleSubmit(handleForm)}>
+          <div>
+            <input placeholder="Nome" name="name" ref={register}></input>
+            {errors.email?.message}
+          </div>
+          <p></p>
+          <div>
+            <input placeholder="email" name="email" ref={register}></input>
+            {errors.email?.message}
+          </div>
+          <p></p>
+          <div>
+            <input placeholder="Senha" name="password" ref={register}></input>
+            {errors.password?.message}
+            <p></p>
+          </div>
+          <div>
+            <input
+              placeholder="Confirmar senha"
+              name="passwordConfirm"
+              ref={register}
+            ></input>
+            <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
+            <p></p>
+          </div>
+          <div>
+            <button type="submit">Entrar</button>
+          </div>
+        </form>
+      </FormContainer>
+    </Container>
   );
 };
 
