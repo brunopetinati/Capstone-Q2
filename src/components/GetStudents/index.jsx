@@ -11,13 +11,13 @@ const Students = () => {
 
   useEffect(() => {
     dispatch(getStudentsThunk());
-  }, []);
+  }, [dispatch]);
 
   const columns = [
+    { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Nome", width: 130 },
     { field: "group", headerName: "Grupo", width: 130 },
     { field: "postscript", headerName: "Descrição", width: 380 },
-    { field: "id", headerName: "ID", width: 70 },
   ];
 
   return (

@@ -1,10 +1,13 @@
 import { USER_LOGIN } from "./actions-types";
 
-const loginReducer = (state = [], actions) => {
+const defaultState = {
+  token: localStorage.getItem("authToken") || "",
+};
+
+const loginReducer = (state = defaultState, actions) => {
   switch (actions.types) {
     case USER_LOGIN:
-      const { login } = actions;
-      return (state = [...state, login]);
+      return { ...state, token: actions.token };
 
     default:
       return state;
