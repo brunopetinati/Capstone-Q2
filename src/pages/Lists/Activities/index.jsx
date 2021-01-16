@@ -1,5 +1,4 @@
-import api from '../../../services/api';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import {
   Table,
@@ -9,15 +8,20 @@ import {
   Anchor
 } from './style';
 import {Button} from '../../Register/Activities/style';
+import {useSelector, useDispatch} from  'react-redux';
+import {listActivitiesThunk} from '../../../store/modules/activities/thunk';
 
 const Activities = () => {
-const [activities, setActivities] = useState([]);
+
+const dispatch = useDispatch();
 const history = useHistory();
+const activities = useSelector(state => state.activities)
 
 useEffect(() =>{
-  api.get('/activities')
-    .then( res => setActivities(res.data))
-},[])
+  dispatch(listActivitiesThunk)
+},[dispatch])
+
+console.log(activities)
 
   return (
     <>
