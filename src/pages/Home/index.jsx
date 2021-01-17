@@ -1,8 +1,13 @@
+import Header from "../../components/Header/index";
+
 const Home = () => {
   return (
-    <div>
-      Essa é a primeira página que o usuário verá ao entrar na plataforma.
-    </div>
+    <>
+      <Header />
+      <div>
+        Essa é a primeira página que o usuário verá ao entrar na plataforma.
+      </div>
+    </>
   );
 };
 

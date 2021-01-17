@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  background-color: #da1b2b;
+  height: 111px;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.headerButtons {
+  margin-left: 5vw;
+  width: 40vw;
+  height: 111px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
