@@ -1,11 +1,15 @@
-.header {
+.headerMobile {
   display: flex;
   background-color: #da1b2b;
   height: 111px;
   color: #ffffff;
   font-size: 2rem;
+  justify-content: center;
 }
 
+.headerDesktop {
+  display: none;
+}
 .headerButtons {
   margin-left: 5vw;
   width: 40vw;
@@ -13,4 +17,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.userMenu {
+  height: 111px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 2vw;
+}
+
+@media screen and (min-width: 768px) {
+  .headerDesktop {
+    display: flex;
+    background-color: #da1b2b;
+    height: 111px;
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  .headerMobile {
+    display: none;
+  }
 }
