@@ -3,14 +3,14 @@ import thunk from "redux-thunk";
 
 //reducers
 import activitiesReducer from "./modules/activities/reducer";
-import authenticationReducer from "./modules/authentication/reducer";
+import profileReducer from "./modules/profile/reducer";
 import loginReducer from "./modules/login/reducer";
 import studentsReducer from "./modules/students/reducer";
 
 const reducer = combineReducers({
-  authorization: authenticationReducer,
   activities: activitiesReducer,
   students: studentsReducer,
+  profile: profileReducer,
   login: loginReducer,
 });
 

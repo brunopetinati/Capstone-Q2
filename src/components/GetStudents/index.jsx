@@ -21,11 +21,11 @@ const Students = () => {
   ];
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: "65vh", width: "100%" }}>
       <DataGrid
         rows={students}
         columns={columns}
-        pageSize={5}
+        pageSize={6}
         checkboxSelection
       />
     </div>
