@@ -1,10 +1,14 @@
 import { Background, Box } from "./styled";
+import Header from "../../../../components/Header/index";
 
 const Profile = () => {
   return (
-    <Background>
-      <Box />
-    </Background>
+    <>
+      <Header />
+      <Background>
+        <Box />
+      </Background>
+    </>
   );
 };
 

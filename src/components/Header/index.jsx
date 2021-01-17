@@ -25,13 +25,19 @@ const Header = () => {
   let history = useHistory();
   return (
     <div className="container">
-      {!isLoggedIn ? (
+      {isLoggedIn ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
-              <div onClick={() => history.push("/")}>Home</div>
-              <div onClick={() => history.push("/login")}>Login</div>
-              <div onClick={() => history.push("/register")}>Cadastro</div>
+              <div className="button" onClick={() => history.push("/")}>
+                Home
+              </div>
+              <div className="button" onClick={() => history.push("/login")}>
+                Login
+              </div>
+              <div className="button" onClick={() => history.push("/register")}>
+                Cadastro
+              </div>
             </div>
             <div
               className="userMenu"
@@ -53,7 +59,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon />
+              <MenuRoundedIcon style={{ fontSize: "40" }} />
             </Button>
             <Menu
               id="fade-menu"
@@ -72,28 +78,62 @@ const Header = () => {
           </div>
         </>
       ) : (
-        <div className="headerDesktop">
-          <div className="headerButtons">
-            <div onClick={() => history.push("/")}>Home</div>
-            <div onClick={() => history.push("/activities")}>
-              Minhas Atividades
+        <>
+          <div className="headerDesktop">
+            <div className="headerButtons">
+              <div className="button" onClick={() => history.push("/")}>
+                Home
+              </div>
+              <div
+                className="button"
+                onClick={() => history.push("/activities")}
+              >
+                Minhas Atividades
+              </div>
+              <div className="button" onClick={() => history.push("/students")}>
+                Meus Alunos
+              </div>
             </div>
-            <div onClick={() => history.push("/students")}>Meus Alunos</div>
+            <div
+              className="userMenu"
+              onClick={() => {
+                console.log("menu de usuario");
+              }}
+            >
+              <img
+                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+                alt="userAvatar"
+                width="25vw"
+              />
+              <div>UserName</div>
+            </div>
           </div>
-          <div
-            className="userMenu"
-            onClick={() => {
-              console.log("menu de usuario");
-            }}
-          >
-            <img
-              src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-              alt="userAvatar"
-              width="25vw"
-            />
-            <div>UserName</div>
+          <div className="headerMobile">
+            <Button
+              aria-controls="fade-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
+              <MenuRoundedIcon style={{ fontSize: "4rem" }} />
+            </Button>
+            <Menu
+              id="fade-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+              <MenuItem onClick={() => history.push("/")}>Home</MenuItem>
+              <MenuItem onClick={() => history.push("/activities")}>
+                Minhas Atividades
+              </MenuItem>
+              <MenuItem onClick={() => history.push("/students")}>
+                Meus Alunos
+              </MenuItem>
+            </Menu>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
