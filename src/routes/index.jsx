@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -17,10 +16,6 @@ import Activities from "../pages/Lists/Activities";
 const Routes = () => {
   const state = useSelector((state) => state.login);
   console.log(state);
-
-  useEffect(() => {
-    console.log("atualizou");
-  }, [state]);
 
   return (
     <Switch>

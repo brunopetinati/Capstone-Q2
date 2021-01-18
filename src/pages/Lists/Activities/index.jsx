@@ -11,7 +11,7 @@ const Activities = () => {
   const activities = useSelector((state) => state.activities);
 
   useEffect(() => {
-    dispatch(listActivitiesThunk);
+    dispatch(listActivitiesThunk());
   }, [dispatch]);
 
   console.log(activities);
