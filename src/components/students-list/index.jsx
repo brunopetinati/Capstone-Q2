@@ -8,7 +8,6 @@ const StudentsList = () =>{
     return(
         <div>
             <p>Alunos</p>
-            <input/> <button>pesquisar</button>
             <ul>
               {students.map(({name}, index) =>{
                 return(

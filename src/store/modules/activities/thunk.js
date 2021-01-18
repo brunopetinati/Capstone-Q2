@@ -7,7 +7,7 @@ export const addActivityThunk = (data) => async (dispatch) =>{
       .catch(err => console.log(err))
 }
 
-export const listActivitiesThunk = () => async (dispatch, getState) => {
+export const listActivitiesThunk = (data) => async (dispatch, getState) => {
   const token = localStorage.getItem("authToken");
 
   try {
@@ -20,6 +20,6 @@ export const listActivitiesThunk = () => async (dispatch, getState) => {
     const activitiesList = activities.data;
     dispatch(listActivity(activitiesList));
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 };
