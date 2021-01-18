@@ -1,13 +1,14 @@
-import api from '../../../services/api';
-import {addActivity, listActivity} from './actions';
+import api from "../../../services/api";
+import { addActivity, listActivity } from "./actions";
 
-export const addActivityThunk = (data) => async (dispatch) =>{
-   await api.post('/activities', {...data})
-      .then(res => dispatch(addActivity(res.data)))
-      .catch(err => console.log(err))
-}
+export const addActivityThunk = (data) => async (dispatch) => {
+  await api
+    .post("/activities", { ...data })
+    .then((res) => dispatch(addActivity(res.data)))
+    .catch((err) => console.log(err));
+};
 
-export const listActivitiesThunk = (data) => async (dispatch, getState) => {
+export const listActivitiesThunk = () => async (dispatch) => {
   const token = localStorage.getItem("authToken");
 
   try {
@@ -17,9 +18,10 @@ export const listActivitiesThunk = (data) => async (dispatch, getState) => {
         "Content-type": "application/json",
       },
     });
+    console.log(activities.data);
     const activitiesList = activities.data;
     dispatch(listActivity(activitiesList));
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
