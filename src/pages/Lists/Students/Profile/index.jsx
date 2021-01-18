@@ -1,15 +1,20 @@
 import { Background, Box } from "./styled";
+import Profile from "../../../../components/GetProfile/index";
+import SearchById from "../../../../components/SearchById/index";
 import Header from "../../../../components/Header/index";
 
-const Profile = () => {
+const ProfilePage = () => {
   return (
     <>
       <Header />
       <Background>
-        <Box />
+        <Box>
+          <Profile />
+        </Box>
+        <SearchById />
       </Background>
     </>
   );
 };
 
-export default Profile;
+export default ProfilePage;
