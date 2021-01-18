@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import api from "../services/api";
+import { useSelector } from "react-redux";
 
 //PAGES
 import Home from "../pages/Home/";
@@ -11,7 +10,7 @@ import Register from "../pages/Register/User/";
 import StudentRegister from "../pages/Register/Student/";
 
 import Students from "../pages/Lists/Students/";
-import Profile from "../pages/Lists/Students/Profile/";
+import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 
@@ -44,7 +43,7 @@ const Routes = () => {
             <Students />
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <ProfilePage />
           </Route>
           <Route exact path="/activitiesregister">
             <ActivitiesRegister />
