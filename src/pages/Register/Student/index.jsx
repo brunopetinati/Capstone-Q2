@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {useDispatch} from 'react-redux';
 import {registerStudentsThunk} from '../../../store/modules/students/thunk';
 import * as yup from 'yup';
@@ -27,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }))
-=======
-import Header from "../../../components/Header/index";
->>>>>>> Develop
 
 const StudentRegister = () => {
   const classes = useStyles();
