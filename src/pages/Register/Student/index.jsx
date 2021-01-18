@@ -1,9 +1,14 @@
+import Header from "../../../components/Header/index";
+
 const StudentRegister = () => {
   return (
-    <div>
-      Essa é a página em que o professor poderá cadastrar o aluno dentro de
-      determinada turma.(Cadastrar Aluno)
-    </div>
+    <>
+      <Header />
+      <div>
+        Essa é a página em que o professor poderá cadastrar o aluno dentro de
+        determinada turma.(Cadastrar Aluno)
+      </div>
+    </>
   );
 };
 

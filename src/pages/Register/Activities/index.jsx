@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { addActivityThunk } from "../../../store/modules/activities/thunk";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import {
   Container,
   Form,
@@ -14,9 +14,10 @@ import {
   ButtonContainer,
   Button,
   Title,
-  Error
-} from './style';
-import Students from '../../../components/transfer';
+  Error,
+} from "./style";
+import Students from "../../../components/transfer";
+import Header from "../../../components/Header/index";
 
 const ActivitiesRegister = () => {
   const dispatch = useDispatch();
