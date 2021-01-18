@@ -4,11 +4,8 @@ import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-<<<<<<< HEAD
 import { Container, FormContainer } from "./style";
-=======
 import Header from "../../../components/Header/index";
->>>>>>> 5b495ada72d55ca2d3df522967ed6c75bc408d17
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -43,75 +40,43 @@ const User = (props) => {
   };
 
   return (
-<<<<<<< HEAD
-    <Container>
-      <FormContainer>
-        <p>Cadastro</p>
-        <form onSubmit={handleSubmit(handleForm)}>
-          <div>
-            <input placeholder="Nome" name="name" ref={register}></input>
-            {errors.email?.message}
-          </div>
-          <p></p>
-          <div>
-            <input placeholder="email" name="email" ref={register}></input>
-            {errors.email?.message}
-          </div>
-          <p></p>
-          <div>
-            <input placeholder="Senha" name="password" ref={register}></input>
-            {errors.password?.message}
-            <p></p>
-          </div>
-          <div>
-            <input
-              placeholder="Confirmar senha"
-              name="passwordConfirm"
-              ref={register}
-            ></input>
-            <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
-            <p></p>
-          </div>
-          <div>
-            <button type="submit">Entrar</button>
-          </div>
-        </form>
-      </FormContainer>
-    </Container>
-=======
     <>
-      <Header />
-      <form onSubmit={handleSubmit(handleForm)}>
-        <div>
-          <input placeholder="Nome" name="name" ref={register}></input>
-          {errors.email?.message}
-        </div>
-        <p></p>
-        <div>
-          <input placeholder="email" name="email" ref={register}></input>
-          {errors.email?.message}
-        </div>
-        <p></p>
-        <div>
-          <input placeholder="Senha" name="password" ref={register}></input>
-          {errors.password?.message}
-          <p></p>
-        </div>
-        <div>
-          <input
-            placeholder="Confirmar senha"
-            name="passwordConfirm"
-            ref={register}
-          ></input>
-          <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
-          <p></p>
-        </div>
-        <div>
-          <button type="submit">Entrar</button>
-        </div>
-      </form>
+      <Header></Header>
+      <Container>
+        <FormContainer>
+          <p>Cadastro</p>
+          <form onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <input placeholder="Nome" name="name" ref={register}></input>
+              {errors.email?.message}
+            </div>
+            <p></p>
+            <div>
+              <input placeholder="email" name="email" ref={register}></input>
+              {errors.email?.message}
+            </div>
+            <p></p>
+            <div>
+              <input placeholder="Senha" name="password" ref={register}></input>
+              {errors.password?.message}
+              <p></p>
+            </div>
+            <div>
+              <input
+                placeholder="Confirmar senha"
+                name="passwordConfirm"
+                ref={register}
+              ></input>
+              <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
+              <p></p>
+            </div>
+            <div>
+              <button type="submit">Entrar</button>
+            </div>
+          </form>
+        </FormContainer>
+      </Container>
     </>
->>>>>>> 5b495ada72d55ca2d3df522967ed6c75bc408d17
   );
 };
 

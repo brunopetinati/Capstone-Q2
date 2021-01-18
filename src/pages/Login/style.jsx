@@ -27,18 +27,6 @@ const Container = styled.div`
 //   }
 // `;
 
-<<<<<<< HEAD
-const HeaderDesktop = styled.div`
-  background-color: #bb1e1e;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  width: 100vw;
-  @media (max-width: 1000px) {
-    display: none;
-  }
-`;
-=======
 // const HeaderDesktop = styled.div`
 //   display: flex;
 //   justify-content: space-around;
@@ -48,7 +36,6 @@ const HeaderDesktop = styled.div`
 //     display: none;
 //   }
 // `;
->>>>>>> 5b495ada72d55ca2d3df522967ed6c75bc408d17
 const FormContainer = styled.div`
   background-color: white;
   width: 30vw;
