@@ -10,7 +10,7 @@ const StudentsTable = () =>{
     const mockData = [];
     for (let i = 0; i < students.length; i++) {
       mockData.push({
-        key: i.toString(),
+        key: students[i].name,
         title: students[i].name,
       });
     }
@@ -20,7 +20,6 @@ const StudentsTable = () =>{
 
     const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
     const [selectedKeys, setSelectedKeys] = useState([]);
-    
     const onChange = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
