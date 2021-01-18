@@ -33,13 +33,11 @@ console.log(activities)
         </TableRow>
         
         {activities.map((activity, index) =>{
-          return(
             <TableRow key={index}>
               <TableCell>{activity.name}</TableCell>
               <TableCell>{activity.date}</TableCell>
               <TableCell><Anchor onClick={() => history.push(`/activities/${activity.id}`)}>+ detalhes</Anchor></TableCell>
             </TableRow>
-          )
         })}
     </Table>
     <Button onClick={() => history.push('/activitiesregister')}>Cadastrar</Button>
