@@ -7,7 +7,7 @@ const activitiesReducer = (state=[], actions) =>{
             return state = [...state, activity];
         case LIST_ACTIVITY:
             const {list} = actions;
-            return list ;
+            return list;
     
         default:
             return state;

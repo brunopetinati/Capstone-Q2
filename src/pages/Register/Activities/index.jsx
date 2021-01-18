@@ -26,6 +26,8 @@ const ActivitiesRegister = () => {
     date: yup.string().required("Campo Obrigatório"),
     description: yup.string(),
     link: yup.string(),
+    students: yup.string().required("Campo Obrigatório")
+    
   });
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
@@ -47,7 +49,7 @@ const ActivitiesRegister = () => {
         <StudentInfo>
         <TextArea name="description" placeholder="Descrição" />
         {errors.description && <Error>{errors.description.message}</Error>}
-            <Students/>
+            <Students name="students" ref={register}/>
         </StudentInfo>
         <Input name="link" placeholder="Link da atividade" />
         {errors.link && <Error>{errors.link.message}</Error>}

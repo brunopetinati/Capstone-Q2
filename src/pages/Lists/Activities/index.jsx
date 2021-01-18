@@ -18,7 +18,7 @@ const history = useHistory();
 const activities = useSelector(state => state.activities)
 
 useEffect(() =>{
-  dispatch(listActivitiesThunk())
+  dispatch(listActivitiesThunk(activities))
 },[dispatch])
 
 console.log(activities)
