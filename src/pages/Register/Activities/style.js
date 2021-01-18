@@ -18,27 +18,29 @@ export const Form = styled.form `
     height: 80vh;
     margin: auto;
 `
+
 export const Input = styled.input `
     border: 1px solid #707070;
     height: 35px;
+    width: 50vw;
 `
+export const Date = styled(Input) `
+    width: 120px
+`
+
 export const MainInfo = styled.div `
     display: flex;
-    width: 45vw;
+    width: 65vw;
     justify-content: space-between;
 `
 export const TextArea = styled.textarea `
     border: 1px solid #707070;
-    width: 800px;
+    width: 65vw;
+    height: 100px;
     resize: none;
 `
-export const StudentInfo = styled.div `
-    display: flex;
-    width: 45vw;
-    justify-content: space-between;
-`
 export const ButtonContainer = styled.div `
-    width: 45vw;
+    width: 65vw;
     display: flex;
     justify-content: space-around;
 `
@@ -57,4 +59,10 @@ export const Title = styled.h1 `
 export const Error = styled.div `
     color: #cc0000;
     font-size: 0.8rem;
+`
+export const List = styled.ul `
+    list-style: none;
+    width: 65vw;
+    height: 100px;
+    overflow: scroll;
 `
