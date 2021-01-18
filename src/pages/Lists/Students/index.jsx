@@ -1,13 +1,17 @@
 import { Background, Box } from "./styled";
 import Students from "../../../components/GetStudents/index";
+import Header from "../../../components/Header/index";
 
 const StudentsPage = () => {
   return (
-    <Background>
-      <Box>
-        <Students />
-      </Box>
-    </Background>
+    <>
+      <Header />
+      <Background>
+        <Box>
+          <Students />
+        </Box>
+      </Background>
+    </>
   );
 };
 
