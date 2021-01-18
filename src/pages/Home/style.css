@@ -1,0 +1,20 @@
+body {
+  background-color: #a8dadc;
+}
+
+.bodyContainer {
+  text-align: center;
+  padding: 5vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bodyText {
+  color: #1d3557;
+  width: 30vw;
+}
+
+.img {
+  width: 30vw;
+}
