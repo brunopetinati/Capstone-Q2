@@ -16,7 +16,7 @@ import {
   Title,
   Error
 } from './style';
-import Students from '../../../components/transfer';
+import Students from '../../../components/students-list';
 
 const ActivitiesRegister = () => {
   const dispatch = useDispatch();
