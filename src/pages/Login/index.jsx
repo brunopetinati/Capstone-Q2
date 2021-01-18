@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer } from "./style";
 import Header from "../../components/Header/index";
+import { Input, Button, Title, Error } from "./../Register/Activities/style";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -34,20 +35,20 @@ const Login = (props) => {
       <Header />
       <Container>
         <FormContainer>
-          <p>Login</p>
+          <Title>Login</Title>
           <form onSubmit={handleSubmit(handleForm)}>
             <div>
-              <input placeholder="email" name="email" ref={register}></input>
-              {errors.email?.message}
+              <Input placeholder="email" name="email" ref={register}></Input>
+              <Error>{errors.email?.message}</Error>
             </div>
             <p></p>
             <div>
-              <input placeholder="Senha" name="password" ref={register}></input>
-              {errors.password?.message}
+              <Input placeholder="Senha" name="password" ref={register}></Input>
+              <Error>{errors.password?.message}</Error>
               <p></p>
             </div>
             <div>
-              <button type="submit">Entrar</button>
+              <Button type="submit">Entrar</Button>
             </div>
           </form>
         </FormContainer>

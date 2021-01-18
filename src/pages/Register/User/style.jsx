@@ -6,7 +6,7 @@ const Container = styled.div`
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   background-color: #a8dadc;
   @media (min-width: 1000px) {
@@ -19,7 +19,7 @@ const Container = styled.div`
 const FormContainer = styled.div`
   background-color: white;
   width: 30vw;
-  height: 40vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

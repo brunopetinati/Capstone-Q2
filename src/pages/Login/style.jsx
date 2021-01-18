@@ -15,31 +15,11 @@ const Container = styled.div`
     width: 100vw;
   }
 `;
-// const HeaderMobile = styled.div`
-//   background-color: #bb1e1e;
-//   width: 100vw;
-//   height: 110px;
-//   display: flex;
-//   justify-content: center;
 
-//   @media (min-width: 1000px) {
-//     display: none;
-//   }
-// `;
-
-// const HeaderDesktop = styled.div`
-//   display: flex;
-//   justify-content: space-around;
-//   padding: 10px;
-//   width: 100vw;
-//   @media (max-width: 1000px) {
-//     display: none;
-//   }
-// `;
 const FormContainer = styled.div`
   background-color: white;
   width: 30vw;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,5 +31,4 @@ const FormContainer = styled.div`
   }
 `;
 
-// export { Container, HeaderMobile, HeaderDesktop, FormContainer };
 export { Container, FormContainer };
