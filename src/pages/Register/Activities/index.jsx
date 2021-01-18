@@ -4,6 +4,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { addActivityThunk } from "../../../store/modules/activities/thunk";
 import {useHistory} from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
+import {makeStyles} from '@material-ui/core/styles';
+import {useState} from 'react';
 import {
   Container,
   Form,
@@ -18,7 +21,18 @@ import {
 } from './style';
 import Students from '../../../components/transfer';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '50%',
+    '& > * + *':{
+      marginTop: theme.spacing(2),
+    }
+  }
+}))
+
 const ActivitiesRegister = () => {
+  const classes = useStyles();
+  const [alertState, setAlertState] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const schema = yup.object().shape({
@@ -31,12 +45,16 @@ const ActivitiesRegister = () => {
     resolver: yupResolver(schema),
   });
 
-  const registerActivity = (data) => {
+  const registerActivity = (data, event) => {
     dispatch(addActivityThunk(data));
+    setAlertState(true)
+    event.target.reset()
   };
+  alertState && setTimeout(() => setAlertState(false), 3000)
   return (
     <Container>
       <Form onSubmit={handleSubmit(registerActivity)}>
+      {alertState && <Alert severity="success">Atividade Cadastrada com Sucesso</Alert>}
         <Title>Cadastrar</Title>
         <MainInfo>
           <Input name="name" placeholder="Atividade" ref={register} />

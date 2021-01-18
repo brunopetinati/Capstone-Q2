@@ -3,21 +3,33 @@ import {registerStudentsThunk} from '../../../store/modules/students/thunk';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from 'react-hook-form';
+import Alert from '@material-ui/lab/Alert';
+import {makeStyles} from '@material-ui/core/styles';
 import {
   Container,
   Form,
   Input,
-  MainInfo,
   TextArea,
-  StudentInfo,
   ButtonContainer,
   Button,
   Title,
   Error
 } from './style';
 import {useHistory} from 'react-router-dom';
+import {useState} from 'react';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '50%',
+    '& > * + *':{
+      marginTop: theme.spacing(2),
+    }
+  }
+}))
 
 const StudentRegister = () => {
+  const classes = useStyles();
+  const [alertState, setAlertState] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const schema = yup.object().shape({
@@ -29,12 +41,18 @@ const StudentRegister = () => {
     resolver: yupResolver(schema)
   })
 
-  const handleForm = (data) =>{
+  const handleForm = (data, event) =>{
     dispatch(registerStudentsThunk(data))
+    setAlertState(true)
+    event.target.reset()
+
   }
+  alertState && setTimeout(() => setAlertState(false), 3000)
+
   return (
     <Container>
       <Form onSubmit={handleSubmit(handleForm)}>
+      {alertState && <Alert severity="success">Aluno Cadastrado com Sucesso</Alert>}
         <Title>Cadastrar Aluno</Title>
         <Input name="name" placeholder="Nome" ref={register}/>
         {errors.name && <Error>{errors.name.message}</Error>}
