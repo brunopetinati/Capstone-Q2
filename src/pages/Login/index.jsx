@@ -4,7 +4,9 @@ import * as yup from "yup";
 import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Container, HeaderDesktop, HeaderMobile, FormContainer } from "./style";
+// import { Container, HeaderDesktop, HeaderMobile, FormContainer } from "./style";
+import { Container, FormContainer } from "./style";
+import Header from "../../components/Header/index";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -30,8 +32,10 @@ const Login = (props) => {
 
   return (
     <>
-      <HeaderMobile></HeaderMobile>
-      <HeaderDesktop></HeaderDesktop>
+      {/* <HeaderMobile> */}
+      <Header />
+      {/* </HeaderMobile> */}
+      {/* <HeaderDesktop></HeaderDesktop> */}
       <Container>
         <FormContainer>
           <p>Login</p>
