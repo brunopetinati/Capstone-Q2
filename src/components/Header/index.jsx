@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
@@ -12,13 +12,10 @@ import "./header.css";
 const Header = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(0);
   const state = useSelector((state) => state.login);
-
+  // console.log(state);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  console.log(state);
 
-  const [login, setLogin] = useState("");
-  console.log(login);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -28,25 +25,19 @@ const Header = () => {
   };
   let history = useHistory();
 
-  useEffect(() => {
-    setLogin(state);
-  }, [state.token]);
   return (
     <div className="container">
       {state.token === "" ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
-              <Link className="button" onClick={() => history.push("/")}>
+              <Link className="button" to="/">
                 Home
               </Link>
-              <Link className="button" onClick={() => history.push("/login")}>
+              <Link className="button" to="/login">
                 Login
               </Link>
-              <Link
-                className="button"
-                onClick={() => history.push("/register")}
-              >
+              <Link className="button" to="/register">
                 Cadastro
               </Link>
             </div>
@@ -92,18 +83,15 @@ const Header = () => {
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
-              <div className="button" onClick={() => history.push("/")}>
+              <Link className="button" to="/">
                 Home
-              </div>
-              <div
-                className="button"
-                onClick={() => history.push("/activities")}
-              >
+              </Link>
+              <Link className="button" to="/activities">
                 Minhas Atividades
-              </div>
-              <div className="button" onClick={() => history.push("/students")}>
+              </Link>
+              <Link className="button" to="/students">
                 Meus Alunos
-              </div>
+              </Link>
             </div>
             <div
               className="userMenu"

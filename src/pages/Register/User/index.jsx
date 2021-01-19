@@ -5,7 +5,6 @@ import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
-import Header from "../../../components/Header/index";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -41,7 +40,6 @@ const User = (props) => {
 
   return (
     <>
-      <Header></Header>
       <Container>
         <FormContainer>
           <Title>Cadastro</Title>

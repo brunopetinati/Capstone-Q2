@@ -32,7 +32,6 @@ const Login = (props) => {
 
   return (
     <>
-      <Header />
       <Container>
         <FormContainer>
           <Title>Login</Title>

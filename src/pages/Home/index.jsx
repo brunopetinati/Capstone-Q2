@@ -1,10 +1,8 @@
-import Header from "../../components/Header/index";
 import "./style.css";
 
 const Home = () => {
   return (
     <>
-      <Header />
       <div className="bodyContainer">
         <div className="bodyText">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
