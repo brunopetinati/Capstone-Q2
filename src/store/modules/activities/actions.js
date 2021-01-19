@@ -1,11 +1,15 @@
-import { ADD_ACTIVITY, LIST_ACTIVITY } from "./actions-types";
+import {LIST_ACTIVITIES, ADD_ACTIVITIES} from './actions-types';
 
-export const addActivity = (activity) => ({
-  type: ADD_ACTIVITY,
-  activity,
-});
+export const listActivities = (activities) =>(
+    {
+        type: LIST_ACTIVITIES,
+        activities
+    }
+)
 
-export const listActivity = (list) => ({
-  type: LIST_ACTIVITY,
-  list,
-});
+export const addActivities = (activity) =>(
+    {
+        type: ADD_ACTIVITIES,
+        activity
+    }
+)

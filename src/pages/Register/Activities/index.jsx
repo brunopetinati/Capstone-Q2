@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addActivityThunk } from "../../../store/modules/activities/thunk";
+import { addActivitiesThunk} from "../../../store/modules/activities/thunk";
 import {useHistory} from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
-import {makeStyles} from '@material-ui/core/styles';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getStudentsThunk} from '../../../store/modules/students/thunk';
@@ -41,7 +40,7 @@ const ActivitiesRegister = () => {
   });
 
   const registerActivity = (data, event) => {
-    dispatch(addActivityThunk(data));
+    dispatch(addActivitiesThunk(data));
     setAlertState(true)
     event.target.reset()
   };
@@ -66,7 +65,7 @@ const ActivitiesRegister = () => {
           {errors.date && <Error>{errors.date.message}</Error>}
         </MainInfo>        
         
-        <TextArea name="description" placeholder="Descrição" />
+        <TextArea name="description" placeholder="Descrição" ref={register}/>
         {errors.description && <Error>{errors.description.message}</Error>}
         <h3>Alunos</h3>
             <List>
@@ -76,7 +75,7 @@ const ActivitiesRegister = () => {
                 )
               })}
             </List>
-        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}}/>
+        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}} ref={register}/>
         {errors.link && <Error>{errors.link.message}</Error>}
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
