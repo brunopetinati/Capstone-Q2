@@ -12,11 +12,7 @@ const activitiesReducer = (state=[], action) => {
         default:
             return state
     }
-}
 
-    default:
-      return state;
-  }
 };
 
 export default activitiesReducer;

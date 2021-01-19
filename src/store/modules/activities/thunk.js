@@ -1,25 +1,14 @@
 import {addActivities, listActivities} from './actions';
-import axios from 'axios';
-
-const token = localStorage.getItem("authToken");
+import api from  '../../../services/api';
 
 export const addActivitiesThunk = (data) => (dispatch) =>{
-    axios.post("https://json-server-bp.herokuapp.com/activities", {...data}, {
-        headers: {
-            Authorization: token
-        }
-    })
+    api.post("/activities", {...data})
         .then(res => dispatch(addActivities(res.data)))
         .catch(err => console.log(err))
 }
 
 export const listActivitiesThunk = () => (dispatch) =>{
-    axios.get("https://json-server-bp.herokuapp.com/activities",{
-        headers: {
-            Authorization: token
-        }
-    }
-            )
+    api.get("/activities")
         .then(res => dispatch(listActivities(res.data)))
         .catch(err => console.log(err))
 }

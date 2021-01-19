@@ -65,7 +65,7 @@ const ActivitiesRegister = () => {
           {errors.date && <Error>{errors.date.message}</Error>}
         </MainInfo>        
         
-        <TextArea name="description" placeholder="Descrição" />
+        <TextArea name="description" placeholder="Descrição" ref={register}/>
         {errors.description && <Error>{errors.description.message}</Error>}
         <h3>Alunos</h3>
             <List>
@@ -75,7 +75,7 @@ const ActivitiesRegister = () => {
                 )
               })}
             </List>
-        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}}/>
+        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}} ref={register}/>
         {errors.link && <Error>{errors.link.message}</Error>}
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
