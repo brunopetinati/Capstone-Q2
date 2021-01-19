@@ -31,17 +31,18 @@ const FormContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
-  border: 1px solid #707070;
-  height: 35px;
-`;
-
-export const Button = styled.button`
-  width: 180px;
-  height: 35px;
-  font-size: 1.3rem;
-  background-color: #c4c4c4;
-  border: 1px solid #707070;
+const Button = styled.button`
+  background-color: #da1b2b;
+  color: #fff;
+  border: none;
+  height: 30px;
+  width: 15vw;
+  border-radius: 10px;
+  font-weight: 100;
+  margin-left: 25%;
+  margin-top: 5%;
+  outline: none;
+  cursor: pointer;
 `;
 export const Title = styled.h1`
   font-family: "Nunito", sans-serif;
@@ -52,4 +53,18 @@ export const Error = styled.div`
   font-size: 0.8rem;
 `;
 
-export { Container, FormContainer, Input };
+const Input = styled.input`
+  height: 30px;
+  border: 1px solid #dddddd;
+  padding: 5px;
+  width: 240px;
+  font-size: 0.7em;
+  outline: none;
+  border-radius: 5px;
+
+  :focus {
+    box-shadow: 0 0 5px rgba(0, 96, 206, 1);
+    border: 1px solid rgba(0, 96, 206, 1);
+  }
+`;
+export { Container, FormContainer, Input, Button };
