@@ -11,7 +11,7 @@ const Activities = () => {
   const activities = useSelector((state) => state.activities);
 
   useEffect(() => {
-    dispatch(listActivitiesThunk);
+    dispatch(listActivitiesThunk());
   }, [dispatch]);
 
   console.log(activities);
@@ -25,9 +25,8 @@ const Activities = () => {
           <TableHead>Data</TableHead>
           <TableHead>Detalhes</TableHead>
         </TableRow>
-
-        {activities.map((activity, index) => {
-          return (
+        
+        {activities.map((activity, index) =>{
             <TableRow key={index}>
               <TableCell>{activity.name}</TableCell>
               <TableCell>{activity.date}</TableCell>
@@ -39,7 +38,6 @@ const Activities = () => {
                 </Anchor>
               </TableCell>
             </TableRow>
-          );
         })}
       </Table>
       <Button onClick={() => history.push("/activitiesregister")}>

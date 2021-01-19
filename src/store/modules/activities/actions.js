@@ -7,9 +7,9 @@ export const addActivity = (activity) =>(
     }
 );
 
-export const listActivity = (activities) =>(
+export const listActivity = (list) =>(
     {
         type: LIST_ACTIVITY,
-        activities
+        list
     }
 );
