@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -25,19 +25,22 @@ const Header = () => {
   let history = useHistory();
   return (
     <div className="container">
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
-              <div className="button" onClick={() => history.push("/")}>
+              <Link className="button" onClick={() => history.push("/")}>
                 Home
-              </div>
-              <div className="button" onClick={() => history.push("/login")}>
+              </Link>
+              <Link className="button" onClick={() => history.push("/login")}>
                 Login
-              </div>
-              <div className="button" onClick={() => history.push("/register")}>
+              </Link>
+              <Link
+                className="button"
+                onClick={() => history.push("/register")}
+              >
                 Cadastro
-              </div>
+              </Link>
             </div>
             <div
               className="userMenu"

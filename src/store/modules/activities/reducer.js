@@ -14,4 +14,9 @@ const activitiesReducer = (state=[], action) => {
     }
 }
 
-export default activitiesReducer
+    default:
+      return state;
+  }
+};
+
+export default activitiesReducer;
