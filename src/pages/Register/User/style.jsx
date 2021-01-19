@@ -30,4 +30,26 @@ const FormContainer = styled.div`
     width: 30vw;
   }
 `;
-export { Container, FormContainer };
+
+const Input = styled.input`
+  border: 1px solid #707070;
+  height: 35px;
+`;
+
+export const Button = styled.button`
+  width: 180px;
+  height: 35px;
+  font-size: 1.3rem;
+  background-color: #c4c4c4;
+  border: 1px solid #707070;
+`;
+export const Title = styled.h1`
+  font-family: "Nunito", sans-serif;
+  color: #1d3557;
+`;
+export const Error = styled.div`
+  color: #cc0000;
+  font-size: 0.8rem;
+`;
+
+export { Container, FormContainer, Input };

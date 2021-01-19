@@ -4,9 +4,8 @@ import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Container, FormContainer } from "./style";
+import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import Header from "../../../components/Header/index";
-import { Input, Button, Title, Error } from "./../../Register/Activities/style";
 
 const User = (props) => {
   const schema = yup.object().shape({
