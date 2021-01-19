@@ -72,7 +72,7 @@ const ActivitiesRegister = () => {
             <List>
               {students.map(({name, group}, index) =>{
                 return(
-                  <li key={index}><input ref={register} name="students" type="checkbox" value={name} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
+                  <li key={index}><input ref={register} name="students" type="checkbox" value={`${name} - ${group}`} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
                 )
               })}
             </List>
