@@ -1,18 +1,12 @@
-import {Component, useEffect} from 'react';
+import {useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
-import { DataGrid, ColDef, RowsProp } from "@material-ui/data-grid";
-import {
-  Table,
-  TableRow,
-  TableHead,
-  TableCell,
-  Anchor,
-  Container
-} from './style';
+import { DataGrid} from "@material-ui/data-grid";
+import {Container} from './style';
 import {Button} from '../../Register/Activities/style';
 import {useSelector, useDispatch} from  'react-redux';
 import {listActivitiesThunk} from '../../../store/modules/activities/thunk';
 import Header from "../../../components/Header/index";
+import {ImBin2} from 'react-icons/im';
 
 const Activities = () => {
   const dispatch = useDispatch();
@@ -28,25 +22,24 @@ const Activities = () => {
   activities.map((activity) =>{
     rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.data}] 
     columns = [
-      { field: 'col1', headerName: 'Atividade', width: 650 },
+      { field: 'col1', headerName: 'Atividade', width: 550 },
       { field: 'col2', headerName: 'Data', width: 150 },
-      { field: 'col3', headerName: 'Detalhes', renderCell: () => <button onClick={() => history.push(`/activities/${activity.id}`)}>+ detalhes</button>, width: 150 },
+      { field: 'col3', headerName: 'Detalhes', renderCell: () => <Link to={`/activities/${activity.id}`}>+ detalhes</Link>, width: 150 },
+      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <div><ImBin2/></div>}
     ]
 })
 
 
   return (
     <div>
-      <Header />
-      <Button onClick={() => history.push("/activitiesregister")}>
-        Cadastrar
-      </Button>
-      
+      <Header />      
       <Container>
-
-      <div style={{ height: 300, width: '100%' }}>
-        <DataGrid columns={columns} rows={rows}/>
-      </div> 
+        <div style={{ height: 450, width: '100%' }}>
+          <DataGrid columns={columns} rows={rows}/>
+        </div> 
+        <Button onClick={() => history.push("/activitiesregister")}>
+          Cadastrar
+        </Button>
       </Container>
     </div>
   );
