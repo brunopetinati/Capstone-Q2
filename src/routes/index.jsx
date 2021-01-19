@@ -12,6 +12,7 @@ import Students from "../pages/Lists/Students/";
 import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
+import Activity from '../pages/Activity';
 
 const Routes = () => {
   const state = useSelector((state) => state.login);
@@ -45,6 +46,9 @@ const Routes = () => {
           </Route>
           <Route exact path="/activities">
             <Activities />
+          </Route>
+          <Route exact path="/activities/:id">
+            <Activity/>
           </Route>
         </>
       ) : (
