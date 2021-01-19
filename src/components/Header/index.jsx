@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
@@ -11,9 +11,10 @@ import "./header.css";
 
 const Header = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(0);
-  const isLoggedIn = useSelector((state) => state.isAuthenticated);
+  const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  console.log(state);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -25,7 +26,7 @@ const Header = () => {
   let history = useHistory();
   return (
     <div className="container">
-      {isLoggedIn ? (
+      {state.token === "" ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
