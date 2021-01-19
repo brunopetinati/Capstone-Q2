@@ -36,7 +36,7 @@ const Button = styled.button`
   font-size: 1.3rem;
   background-color: #c4c4c4;
   border: 1px solid #707070;
-  @media (min-width: 500px) {
+  @media (min-width: 250px) {
     width: 100px;
   }
 `;
