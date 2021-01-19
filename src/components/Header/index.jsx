@@ -25,7 +25,7 @@ const Header = () => {
   let history = useHistory();
   return (
     <div className="container">
-      {isLoggedIn ? (
+      {!isLoggedIn ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
