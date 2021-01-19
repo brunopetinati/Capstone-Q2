@@ -5,10 +5,12 @@ import { Button } from "../../Register/Activities/style";
 import { useSelector, useDispatch } from "react-redux";
 import { listActivitiesThunk } from "../../../store/modules/activities/thunk";
 import Header from "../../../components/Header/index";
+
 const Activities = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const activities = useSelector((state) => state.activities);
+  console.log(activities);
 
   useEffect(() => {
     dispatch(listActivitiesThunk());

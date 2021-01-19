@@ -18,7 +18,7 @@ export const listActivitiesThunk = () => async (dispatch) => {
         "Content-type": "application/json",
       },
     });
-    console.log(activities.data);
+
     const activitiesList = activities.data;
     dispatch(listActivity(activitiesList));
   } catch (err) {
