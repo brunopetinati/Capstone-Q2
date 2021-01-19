@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Container = styled.div `
+    background-color: #fff;
+    width: 80vw;
+    margin: auto;
+`
+
 export const Table = styled.table ` 
     width: 80vw;
     margin: auto;

@@ -1,16 +1,16 @@
-import {ADD_ACTIVITY, LIST_ACTIVITY} from './actions-types';
+import {LIST_ACTIVITIES, ADD_ACTIVITIES} from './actions-types';
 
-const activitiesReducer = (state=[], actions) =>{
-    switch (actions.types) {
-        case ADD_ACTIVITY:
-            const {activity} = actions;
-            return state = [...state, activity];
-        case LIST_ACTIVITY:
-            const {list} = actions;
-            return list;
-    
+const activitiesReducer = (state=[], action) => {
+    switch (action.type) {
+        
+        case LIST_ACTIVITIES:
+            const {activities} = action;
+            return activities
+        case ADD_ACTIVITIES:
+            const {activity} = action;
+            return state =[...state, activity]
         default:
-            return state;
+            return state
     }
 }
 

@@ -5,7 +5,8 @@ import {
   TableRow,
   TableHead,
   TableCell,
-  Anchor
+  Anchor,
+  Container
 } from './style';
 import {Button} from '../../Register/Activities/style';
 import {useSelector, useDispatch} from  'react-redux';
@@ -27,6 +28,11 @@ useEffect(() =>{
   return (
     <>
       <Header />
+      <Button onClick={() => history.push("/activitiesregister")}>
+        Cadastrar
+      </Button>
+      <Container>
+
       <Table>
         <TableRow>
           <TableHead>Atividade</TableHead>
@@ -49,9 +55,7 @@ useEffect(() =>{
               )
         })}
       </Table>
-      <Button onClick={() => history.push("/activitiesregister")}>
-        Cadastrar
-      </Button>
+      </Container>
     </>
   );
 };

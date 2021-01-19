@@ -1,26 +1,25 @@
-import api from "../../../services/api";
-import { addActivity, listActivity } from "./actions";
+import {addActivities, listActivities} from './actions';
+import axios from 'axios';
 
-export const addActivityThunk = (data) => async (dispatch) => {
-  await api
-    .post("/activities", { ...data })
-    .then((res) => dispatch(addActivity(res.data)))
-    .catch((err) => console.log(err));
-};
+const token = localStorage.getItem("authToken");
 
-export const listActivitiesThunk = () => async (dispatch) => {
-  const token = localStorage.getItem("authToken");
+export const addActivitiesThunk = (data) => (dispatch) =>{
+    axios.post("https://json-server-bp.herokuapp.com/activities", {...data}, {
+        headers: {
+            Authorization: token
+        }
+    })
+        .then(res => dispatch(addActivities(res.data)))
+        .catch(err => console.log(err))
+}
 
-  try {
-    const activities = await api.get("/activities", {
-      headers: {
-        Authorization: `Bearer: ${token}`,
-        "Content-type": "application/json",
-      },
-    });
-    const activitiesList = activities.data;
-    dispatch(listActivity(activitiesList));
-  } catch (err) {
-    console.error(err);
-  }
-};
+export const listActivitiesThunk = () => (dispatch) =>{
+    axios.get("https://json-server-bp.herokuapp.com/activities",{
+        headers: {
+            Authorization: token
+        }
+    }
+            )
+        .then(res => dispatch(listActivities(res.data)))
+        .catch(err => console.log(err))
+}
