@@ -4,6 +4,7 @@ import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import Header from "../../../components/Header/index";
 
 const User = (props) => {
@@ -40,36 +41,41 @@ const User = (props) => {
 
   return (
     <>
-      <Header />
-      <form onSubmit={handleSubmit(handleForm)}>
-        <div>
-          <input placeholder="Nome" name="name" ref={register}></input>
-          {errors.email?.message}
-        </div>
-        <p></p>
-        <div>
-          <input placeholder="email" name="email" ref={register}></input>
-          {errors.email?.message}
-        </div>
-        <p></p>
-        <div>
-          <input placeholder="Senha" name="password" ref={register}></input>
-          {errors.password?.message}
-          <p></p>
-        </div>
-        <div>
-          <input
-            placeholder="Confirmar senha"
-            name="passwordConfirm"
-            ref={register}
-          ></input>
-          <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
-          <p></p>
-        </div>
-        <div>
-          <button type="submit">Entrar</button>
-        </div>
-      </form>
+      <Header></Header>
+      <Container>
+        <FormContainer>
+          <Title>Cadastro</Title>
+          <form onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <Input placeholder="Nome" name="name" ref={register}></Input>
+              <Error>{errors.name?.message}</Error>
+            </div>
+            <p></p>
+            <div>
+              <Input placeholder="email" name="email" ref={register}></Input>
+              <Error>{errors.email?.message}</Error>
+            </div>
+            <p></p>
+            <div>
+              <Input placeholder="Senha" name="password" ref={register}></Input>
+              <Error>{errors.password?.message}</Error>
+              <p></p>
+            </div>
+            <div>
+              <Input
+                placeholder="Confirmar senha"
+                name="passwordConfirm"
+                ref={register}
+              ></Input>
+              <Error>{errors.passwordConfirm?.message}</Error>
+              <p></p>
+            </div>
+            <div>
+              <Button type="submit">Entrar</Button>
+            </div>
+          </form>
+        </FormContainer>
+      </Container>
     </>
   );
 };

@@ -1,66 +1,89 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
 import { addActivityThunk } from "../../../store/modules/activities/thunk";
-import { useHistory } from "react-router-dom";
+import {useHistory} from 'react-router-dom';
+import Alert from '@material-ui/lab/Alert';
+import {makeStyles} from '@material-ui/core/styles';
+import {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {getStudentsThunk} from '../../../store/modules/students/thunk';
 import {
   Container,
   Form,
   Input,
   MainInfo,
   TextArea,
-  StudentInfo,
   ButtonContainer,
   Button,
   Title,
   Error,
-} from "./style";
-import Students from "../../../components/transfer";
-import Header from "../../../components/Header/index";
+  List,
+  Date
+} from './style';
 
 const ActivitiesRegister = () => {
+  const [alertState, setAlertState] = useState(false);
+  const [selected, setSelected] = useState([]);
+
+  const students = useSelector((state) => state.students);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
     date: yup.string().required("Campo Obrigatório"),
     description: yup.string(),
-    link: yup.string(),
+    link: yup.string(),  
   });
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const registerActivity = (data) => {
+  const registerActivity = (data, event) => {
     dispatch(addActivityThunk(data));
+    setAlertState(true)
+    event.target.reset()
   };
+
+  useEffect(() => {
+    dispatch(getStudentsThunk());
+  }, [dispatch]);
+  console.log(selected)
+  alertState && setTimeout(() => setAlertState(false), 3000)
+
+  
+
   return (
-    <>
-      <Header />
-      <Container>
-        <Form onSubmit={handleSubmit(registerActivity)}>
-          <Title>Cadastrar</Title>
-          <MainInfo>
-            <Input name="name" placeholder="Atividade" ref={register} />
-            {errors.activity && <Error>{errors.activity.message}</Error>}
-            <Input name="date" type="date" ref={register} />
-            {errors.date && <Error>{errors.date.message}</Error>}
-          </MainInfo>
-          <StudentInfo>
-            <TextArea name="description" placeholder="Descrição" />
-            {errors.description && <Error>{errors.description.message}</Error>}
-            <Students />
-          </StudentInfo>
-          <Input name="link" placeholder="Link da atividade" />
-          {errors.link && <Error>{errors.link.message}</Error>}
-          <ButtonContainer>
-            <Button onClick={() => history.push("/activities")}>Voltar</Button>
-            <Button type="submit">Cadastrar</Button>
-          </ButtonContainer>
-        </Form>
-      </Container>
-    </>
+    <Container>
+      <Form onSubmit={handleSubmit(registerActivity)}>
+      {alertState && <Alert severity="success">Atividade Cadastrada com Sucesso</Alert>}
+        <Title>Cadastrar</Title>
+        <MainInfo>
+          <Input name="name" placeholder="Atividade" ref={register} />
+          {errors.activity && <Error>{errors.activity.message}</Error>}
+          <Date name="date" type="date" ref={register} />
+          {errors.date && <Error>{errors.date.message}</Error>}
+        </MainInfo>        
+        
+        <TextArea name="description" placeholder="Descrição" />
+        {errors.description && <Error>{errors.description.message}</Error>}
+        <h3>Alunos</h3>
+            <List>
+              {students.map(({name, group}, index) =>{
+                return(
+                  <li key={index}><input ref={register} name="students" type="checkbox" value={`${name} - ${group}`} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
+                )
+              })}
+            </List>
+        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}}/>
+        {errors.link && <Error>{errors.link.message}</Error>}
+        <ButtonContainer>
+          <Button onClick={() => history.push('/activities')}>Voltar</Button>
+          <Button type="submit">Cadastrar</Button>
+        </ButtonContainer>
+      </Form>
+    </Container>
   );
 };
 

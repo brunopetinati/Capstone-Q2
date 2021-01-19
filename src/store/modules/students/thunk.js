@@ -1,4 +1,4 @@
-import { getStudents } from "./actions";
+import { getStudents, registerStudents } from "./actions";
 import api from "../../../services/api";
 
 export const getStudentsThunk = () => async (dispatch, getState) => {
@@ -18,3 +18,9 @@ export const getStudentsThunk = () => async (dispatch, getState) => {
     console.error(err);
   }
 };
+
+export const registerStudentsThunk = (data) => (dispatch) =>{
+  api.post("/students", {...data})
+  .then(res => dispatch(registerStudents(res.data)))
+  .catch(err => console.log(err))
+}
