@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
@@ -12,10 +12,13 @@ import "./header.css";
 const Header = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(0);
   const state = useSelector((state) => state.login);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   console.log(state);
 
+  const [login, setLogin] = useState("");
+  console.log(login);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -24,6 +27,10 @@ const Header = () => {
     setAnchorEl(null);
   };
   let history = useHistory();
+
+  useEffect(() => {
+    setLogin(state);
+  }, [state.token]);
   return (
     <div className="container">
       {state.token === "" ? (
