@@ -12,15 +12,17 @@ export const Table = styled.table `
     color: #707070;
 `
 export const TableHead = styled.th `
-    background-color: #1D3557;
-    color: #fff;
+    color: #707070;
     padding: 1%;
+    border-left: 1px solid #707070;
+    text-align: left;
 `
 export const TableRow = styled.tr `
     border-bottom: 1px solid #707070;
 `
 export const TableCell = styled.td `
     padding: 1%;
+    border-bottom: 1px solid #707070;
 `
 export const Anchor = styled.a `
 

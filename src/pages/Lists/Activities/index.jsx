@@ -1,5 +1,6 @@
-import {useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
+import {Component, useEffect} from 'react';
+import {useHistory, Link} from 'react-router-dom';
+import { DataGrid, ColDef, RowsProp } from "@material-ui/data-grid";
 import {
   Table,
   TableRow,
@@ -17,45 +18,37 @@ const Activities = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const activities = useSelector((state) => state.activities);
+  let rows = []
+  let columns = []
 
   useEffect(() => {
     dispatch(listActivitiesThunk());
   }, [dispatch]);
 
-  console.log(activities);
+  activities.map((activity) =>{
+    rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.data}] 
+    columns = [
+      { field: 'col1', headerName: 'Atividade', width: 650 },
+      { field: 'col2', headerName: 'Data', width: 150 },
+      { field: 'col3', headerName: 'Detalhes', renderCell: () => <button onClick={() => history.push(`/activities/${activity.id}`)}>+ detalhes</button>, width: 150 },
+    ]
+})
+
 
   return (
-    <>
+    <div>
       <Header />
       <Button onClick={() => history.push("/activitiesregister")}>
         Cadastrar
       </Button>
+      
       <Container>
 
-      <Table>
-        <TableRow>
-          <TableHead>Atividade</TableHead>
-          <TableHead>Data</TableHead>
-          <TableHead>Detalhes</TableHead>
-        </TableRow>
-        {activities.map((activity, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell>{activity.name}</TableCell>
-              <TableCell>{activity.date}</TableCell>
-              <TableCell>
-                <Anchor
-                  onClick={() => history.push(`/activities/${activity.id}`)}
-                >
-                  + detalhes
-                </Anchor>
-              </TableCell>
-            </TableRow>
-          );
-        })}
-      </Table>
+      <div style={{ height: 300, width: '100%' }}>
+        <DataGrid columns={columns} rows={rows}/>
+      </div> 
       </Container>
-    </>
+    </div>
   );
 };
 
