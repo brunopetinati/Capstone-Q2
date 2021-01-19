@@ -9,6 +9,8 @@
 
 .button {
   margin-right: 5vw;
+  color: white;
+  text-decoration: none;
 }
 .headerDesktop {
   display: none;
