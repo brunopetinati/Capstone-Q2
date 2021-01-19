@@ -30,5 +30,30 @@ const FormContainer = styled.div`
     width: 30vw;
   }
 `;
+const Button = styled.button`
+  width: 180px;
+  height: 35px;
+  font-size: 1.3rem;
+  background-color: #c4c4c4;
+  border: 1px solid #707070;
+  @media (min-width: 500px) {
+    width: 100px;
+  }
+`;
+const Title = styled.h1`
+  font-family: "Nunito", sans-serif;
+  color: #1d3557;
+`;
+const Error = styled.div`
+  color: #cc0000;
+  font-size: 0.8rem;
+`;
+const Input = styled.input`
+  border: 1px solid #707070;
+  height: 35px;
+  @media (min-width: 500px) {
+    width: 100px;
+  }
+`;
 
-export { Container, FormContainer };
+export { Container, FormContainer, Button, Title, Error, Input };
