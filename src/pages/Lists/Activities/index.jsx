@@ -10,7 +10,6 @@ const Activities = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const activities = useSelector((state) => state.activities);
-  console.log(activities);
 
   useEffect(() => {
     dispatch(listActivitiesThunk());
@@ -27,7 +26,6 @@ const Activities = () => {
           <TableHead>Data</TableHead>
           <TableHead>Detalhes</TableHead>
         </TableRow>
-
         {activities.map((activity, index) => {
           return (
             <TableRow key={index}>
