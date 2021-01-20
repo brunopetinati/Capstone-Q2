@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import Header from "../../components/Header/index";
-//import { Input, Button, Title, Error } from "./../Register/Activities/style";
+
 
 const Login = (props) => {
   const dispatch = useDispatch();

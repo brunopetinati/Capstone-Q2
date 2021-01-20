@@ -52,9 +52,6 @@ const Input = styled.input`
     box-shadow: 0 0 5px rgba(0, 96, 206, 1);
     border: 1px solid rgba(0, 96, 206, 1);
   }
-  // @media (max-width: 1000px) {
-  //   width: px;
-  // }
 `;
 
 const Button = styled.button`

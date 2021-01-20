@@ -19,7 +19,7 @@ const Container = styled.div`
 const FormContainer = styled.div`
   background-color: white;
   width: 30vw;
-  height: 60vh;
+  height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,14 +39,15 @@ const Button = styled.button`
   width: 15vw;
   border-radius: 10px;
   font-weight: 100;
-  margin-left: 25%;
+  margin-left: 15%;
   margin-top: 5%;
   outline: none;
   cursor: pointer;
 `;
-export const Title = styled.h1`
+export const Title = styled.h2`
   font-family: "Nunito", sans-serif;
   color: #1d3557;
+  margin-top: 1%;
 `;
 export const Error = styled.div`
   color: #cc0000;
@@ -57,7 +58,7 @@ const Input = styled.input`
   height: 30px;
   border: 1px solid #dddddd;
   padding: 5px;
-  width: 240px;
+  width: 20vw;
   font-size: 0.7em;
   outline: none;
   border-radius: 5px;
