@@ -2,6 +2,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getStudentsThunk } from "../../store/modules/students/thunk";
+import { Box } from "./styles";
 
 const Students = () => {
   const dispatch = useDispatch();
@@ -17,18 +18,13 @@ const Students = () => {
     { field: "id", headerName: "ID", width: 70 },
     { field: "name", headerName: "Nome", width: 130 },
     { field: "group", headerName: "Grupo", width: 130 },
-    { field: "postscript", headerName: "Descrição", width: 380 },
+    { field: "postscript", headerName: "Descrição", width: 780 },
   ];
 
   return (
-    <div style={{ height: "65vh", width: "100%" }}>
-      <DataGrid
-        rows={students}
-        columns={columns}
-        pageSize={6}
-        checkboxSelection
-      />
-    </div>
+    <Box>
+      <DataGrid rows={students} columns={columns} autoPageSize={true} />
+    </Box>
   );
 };
 

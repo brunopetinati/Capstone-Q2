@@ -1,26 +1,14 @@
-import api from "../../../services/api";
-import { addActivity, listActivity } from "./actions";
+import {addActivities, listActivities} from './actions';
+import api from  '../../../services/api';
 
-export const addActivityThunk = (data) => async (dispatch) => {
-  await api
-    .post("/activities", { ...data })
-    .then((res) => dispatch(addActivity(res.data)))
-    .catch((err) => console.log(err));
-};
+export const addActivitiesThunk = (data) => (dispatch) =>{
+    api.post("/activities", {...data})
+        .then(res => dispatch(addActivities(res.data)))
+        .catch(err => console.log(err))
+}
 
-export const listActivitiesThunk = () => async (dispatch) => {
-  const token = localStorage.getItem("authToken");
-
-  try {
-    const activities = await api.get("/activities", {
-      headers: {
-        Authorization: `Bearer: ${token}`,
-        "Content-type": "application/json",
-      },
-    });
-    const activitiesList = activities.data;
-    dispatch(listActivity(activitiesList));
-  } catch (err) {
-    console.error(err);
-  }
-};
+export const listActivitiesThunk = () => (dispatch) =>{
+    api.get("/activities")
+        .then(res => dispatch(listActivities(res.data)))
+        .catch(err => console.log(err))
+}

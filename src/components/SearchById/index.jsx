@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 import { getProfileThunk } from "../../store/modules/profile/thunk";
+import { Button } from "../../pages/Lists/Students/styled";
 
 const SearchById = () => {
   const dispatch = useDispatch();
@@ -16,9 +17,9 @@ const SearchById = () => {
         placeholder="Insira ID"
       />
       <br />
-      <button onClick={() => dispatch(getProfileThunk(id))}>
+      <Button onClick={() => dispatch(getProfileThunk(id))}>
         Obter Informações
-      </button>
+      </Button>
     </>
   );
 };

@@ -4,12 +4,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  align-items: center;
+
   justify-content: center;
-  height: 75vh;
+  height: 80vh;
   width: 100vw;
   background-color: #a8dadc;
-  @media (min-width: 1000px) {
+  @media (max-width: 1000px) {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
@@ -18,16 +18,19 @@ const Container = styled.div`
 
 const FormContainer = styled.div`
   background-color: white;
-  width: 50vw;
-  height: 45vh;
+  width: 35vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
   align-items: center;
   border-radius: 10px;
 
-  @media (min-width: 797px) {
-    width: 30vw;
+  @media (max-width: 1000px) {
+    width: 90vw;
+    height: 80vh;
+    margin-top: 5vh;
   }
 `;
 
@@ -52,20 +55,46 @@ const Input = styled.input`
     box-shadow: 0 0 5px rgba(0, 96, 206, 1);
     border: 1px solid rgba(0, 96, 206, 1);
   }
+  @media (max-width: 800px) {
+    width: 70vw;
+    height: 3vh;
+    margin-top: 3vh;
+    margin-left: 3vh;
+  }
 `;
 
 const Button = styled.button`
   background-color: #da1b2b;
   color: #fff;
   border: none;
-  height: 30px;
+  height: 4vh;
   width: 15vw;
   border-radius: 10px;
   font-weight: 100;
-  margin-left: 25%;
-  margin-top: 5%;
+  margin-top: 10%;
+  margin-left: 22%;
   outline: none;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 70vw;
+    height: 6vh;
+    margin-top: 3vh;
+    margin-left: 3vh;
+    font-size: 20px;
+  }
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    width: 15vw;
+    height: 6vh;
+    margin-top: 1vh;
+    margin-left: 10vh;
+    font-size: 20px;
+  }
+  :hover {
+    background-color: #00273d;
+    color: white;
+    border: solid #a8dadc 2px;
+    transition: 0.8s;
+  }
 `;
 
 export { Container, FormContainer, Button, Title, Error, Input };
