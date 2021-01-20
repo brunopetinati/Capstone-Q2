@@ -1,10 +1,14 @@
-import Header from "../../components/Header/index";
 import "./style.css";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <>
-      <Header />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className="bodyContainer">
         <div className="bodyText">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
@@ -29,7 +33,7 @@ const Home = () => {
           />
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 
