@@ -37,4 +37,7 @@ export const PostScript = styled.div`
   margin-right: 9vh;
   margin-bottom: 10vh;
   font-size: 20px;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 `;

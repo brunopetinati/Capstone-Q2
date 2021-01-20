@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -10,10 +10,10 @@ import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import "./header.css";
 
 const Header = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(0);
-  const isLoggedIn = useSelector((state) => state.isAuthenticated);
+  const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  console.log(state);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,25 +22,23 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   let history = useHistory();
   return (
     <div className="container">
-      {!isLoggedIn ? (
+      {state.token === "" ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
-              <Link className="button" onClick={() => history.push("/")}>
+              <div className="button" onClick={() => history.push("/")}>
                 Home
-              </Link>
-              <Link className="button" onClick={() => history.push("/login")}>
+              </div>
+              <div className="button" onClick={() => history.push("/login")}>
                 Login
-              </Link>
-              <Link
-                className="button"
-                onClick={() => history.push("/register")}
-              >
+              </div>
+              <div className="button" onClick={() => history.push("/register")}>
                 Cadastro
-              </Link>
+              </div>
             </div>
             <div
               className="userMenu"

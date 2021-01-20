@@ -1,17 +1,30 @@
-import { Background, Box } from "./styled";
+import { Background, Button, SmallContainer } from "./styled";
 import Students from "../../../components/GetStudents/index";
-import Header from "../../../components/Header/index";
+import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const StudentsPage = () => {
+  const history = useHistory();
   return (
-    <>
-      <Header />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <Background>
-        <Box>
-          <Students />
-        </Box>
+        <Students />
+
+        <SmallContainer>
+          <Button onClick={() => history.push("/studentregister")}>
+            Cadastrar Novo Aluno
+          </Button>
+          <Button onClick={() => history.push("/profile")}>
+            Ver perfil de alunos
+          </Button>
+        </SmallContainer>
       </Background>
-    </>
+    </motion.div>
   );
 };
 
