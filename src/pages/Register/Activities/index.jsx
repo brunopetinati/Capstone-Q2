@@ -20,6 +20,7 @@ import {
   List,
   Date
 } from './style';
+import {motion} from 'framer-motion'
 
 const ActivitiesRegister = () => {
   const [alertState, setAlertState] = useState(false);
@@ -54,6 +55,12 @@ const ActivitiesRegister = () => {
   
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
     <Container>
       <Form onSubmit={handleSubmit(registerActivity)}>
       {alertState && <Alert severity="success">Atividade Cadastrada com Sucesso</Alert>}
@@ -83,6 +90,7 @@ const ActivitiesRegister = () => {
         </ButtonContainer>
       </Form>
     </Container>
+    </motion.div>
   );
 };
 
