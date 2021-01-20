@@ -5,10 +5,7 @@ import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
-<<<<<<< HEAD
-=======
 import { motion } from "framer-motion";
->>>>>>> ece26d2d5cd91c88d6ba9b48836513e3e246417f
 
 const User = (props) => {
   const schema = yup.object().shape({

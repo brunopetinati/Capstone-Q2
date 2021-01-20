@@ -32,16 +32,12 @@ const Login = (props) => {
   };
 
   return (
-<<<<<<< HEAD
-    <>
-=======
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
     >
->>>>>>> ece26d2d5cd91c88d6ba9b48836513e3e246417f
       <Container>
         <FormContainer>
           <Title>Login</Title>
