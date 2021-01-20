@@ -12,3 +12,8 @@ export const listActivitiesThunk = () => (dispatch) =>{
         .then(res => dispatch(listActivities(res.data)))
         .catch(err => console.log(err))
 }
+
+export const deleteActivitiesThunk = (id) => (dispatch) =>{
+    api.delete(`/activities/${id}`)
+        .catch(err => console.log(err))
+}

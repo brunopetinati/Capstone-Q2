@@ -1,29 +1,25 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 export const Container = styled.div `
+    display:flex;
+    flex-direction: column;
     background-color: #fff;
     width: 80vw;
     margin: auto;
+    align-items: center;
+    justify-content: center;
 `
-
-export const Table = styled.table ` 
-    width: 80vw;
-    margin: auto;
+export const StyledLink = styled(Link) `
     color: #707070;
+    text-decoration: none;
+    &:hover{
+        color: #da1b2b;
+    }
 `
-export const TableHead = styled.th `
+export const Icon = styled.div `
     color: #707070;
-    padding: 1%;
-    border-left: 1px solid #707070;
-    text-align: left;
-`
-export const TableRow = styled.tr `
-    border-bottom: 1px solid #707070;
-`
-export const TableCell = styled.td `
-    padding: 1%;
-    border-bottom: 1px solid #707070;
-`
-export const Anchor = styled.a `
-
+    &:hover{
+        color: #da1b2b;
+    }
 `
