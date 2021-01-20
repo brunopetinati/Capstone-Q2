@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addActivitiesThunk} from "../../../store/modules/activities/thunk";
 import {useHistory} from 'react-router-dom';
-import Alert from '@material-ui/lab/Alert';
+import AlertFlag from '../../../components/AlertFlag';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getStudentsThunk} from '../../../store/modules/students/thunk';
@@ -63,7 +63,7 @@ const ActivitiesRegister = () => {
     >
     <Container>
       <Form onSubmit={handleSubmit(registerActivity)}>
-      {alertState && <Alert severity="success">Atividade Cadastrada com Sucesso</Alert>}
+      {alertState && <AlertFlag severity="success" text="Atividade Cadastrada com Sucesso"/>}
         <Title>Cadastrar</Title>
         <MainInfo>
           <Input name="name" placeholder="Atividade" ref={register} />
