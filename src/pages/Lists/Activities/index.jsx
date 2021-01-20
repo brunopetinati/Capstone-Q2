@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import {Alert} from '@material-ui/lab';
+import AlertFlag from '../../../components/AlertFlag';
 import {
   Container,
   StyledLink,
@@ -50,7 +50,7 @@ const Activities = () => {
       transition={{ duration: 2 }}
     >    
       <Container>
-        {alertState && <Alert severity="success">Atividade excluida com sucesso</Alert>}
+        {alertState && <AlertFlag severity="success" text="Atividade excluida com sucesso"/>}
         <div style={{ height: 450, width: '100%' }}>
           <DataGrid columns={columns} rows={rows}/>
         </div> 
