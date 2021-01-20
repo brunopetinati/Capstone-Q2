@@ -1,8 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import Login from "./../../pages/Login/index";
+import { Provider } from "react-redux";
+import Login from "./index";
+import store from "./../../store";
 
 test("renders learn react link", () => {
-  render(<Login />);
+  render(
+    <Provider store={store}>
+      <Login />
+    </Provider>
+  );
   const linkElement = screen.getByText(/Login/i);
   expect(linkElement).toBeInTheDocument();
 });
