@@ -17,9 +17,8 @@ import {Button} from '../Register/Activities/style';
 const Activity = () =>{
     const {id} = useParams();
     const activities = useSelector(state => state.activities);
-    const activity = activities.filter((activity) => activity.id == id);
+    const activity = activities.filter((activity) => activity.id.toString() === id);
 
-    console.log(activity)
     return(
             <Container>
                 {activity.map(({name, date, description, students, link}, index) =>{
