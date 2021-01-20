@@ -1,5 +1,18 @@
 import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
+import {
+    Container,
+    Title,
+    Date,
+    Header,
+    Description,
+    StyledLink,
+    List,
+    ListItem,
+    ListContainer,
+    Subtitle
+} from './style';
+import {Button} from '../Register/Activities/style';
 
 const Activity = () =>{
     const {id} = useParams();
@@ -8,25 +21,32 @@ const Activity = () =>{
 
     console.log(activity)
     return(
-            <div>
+            <Container>
                 {activity.map(({name, date, description, students, link}, index) =>{
                     return(
                         <div key={index}>
-                            <h1>{name}</h1>
-                            <p>{date}</p>
-                            <p>{description}</p>
-                            <a href={link} target="blank">{link}</a>
-                            <ul>
-                            {students.map((student, index) =>{
-                                return(
-                                    <li key={index}>{student}</li>
-                                )
-                            })}
-                            </ul>
+                            <Header>
+                                <Title>{name}</Title>
+                                <Date>{date}</Date>
+                            </Header>
+                            <StyledLink href={link} target="blank">Link da Atividade</StyledLink>
+                            <Subtitle>Descrição</Subtitle>
+                            <Description>{description}</Description>
+                            <ListContainer>
+                                <List>
+                                    <Subtitle>Alunos</Subtitle>
+                                {students.map((student, index) =>{
+                                    return(
+                                        <ListItem key={index}>{student}</ListItem>
+                                    )
+                                })}
+                                </List>
+                            </ListContainer>
+                            <Button>Voltar</Button>
                         </div>
                         )
                 })}
-            </div>
+            </Container>
     )
 }
 

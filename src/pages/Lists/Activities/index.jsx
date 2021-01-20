@@ -1,7 +1,11 @@
 import {useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
 import { DataGrid} from "@material-ui/data-grid";
-import {Container} from './style';
+import {
+  Container,
+  StyledLink,
+  Icon
+} from './style';
 import {Button} from '../../Register/Activities/style';
 import {useSelector, useDispatch} from  'react-redux';
 import {listActivitiesThunk, deleteActivitiesThunk} from '../../../store/modules/activities/thunk';
@@ -20,12 +24,12 @@ const Activities = () => {
   }, [dispatch]);
 
   activities.map((activity) =>{
-    rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.data}] 
+    rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.date}] 
     columns = [
       { field: 'col1', headerName: 'Atividade', width: 550 },
       { field: 'col2', headerName: 'Data', width: 150 },
-      { field: 'col3', headerName: 'Detalhes', renderCell: () => <Link to={`/activities/${activity.id}`}>+ detalhes</Link>, width: 150 },
-      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <div onClick={() => dispatch(deleteActivitiesThunk(activity.id))}><ImBin2/></div>}
+      { field: 'col3', headerName: 'Detalhes', renderCell: () => <StyledLink to={`/activities/${activity.id}`}>+ detalhes</StyledLink>, width: 150 },
+      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <Icon onClick={() => dispatch(deleteActivitiesThunk(activity.id))}><ImBin2/></Icon>}
     ]
 })
 

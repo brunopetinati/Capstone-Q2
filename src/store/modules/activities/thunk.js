@@ -1,4 +1,4 @@
-import {addActivities, listActivities, deleteActivities} from './actions';
+import {addActivities, listActivities} from './actions';
 import api from  '../../../services/api';
 
 export const addActivitiesThunk = (data) => (dispatch) =>{
