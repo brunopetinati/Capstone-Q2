@@ -5,10 +5,10 @@ import {
   deleteStudentThunk,
 } from "../../store/modules/students/thunk";
 import { DataGrid } from "@material-ui/data-grid";
-import { Alert } from "@material-ui/lab";
 import { ImBin2 } from "react-icons/im";
-import { Box } from "./styles";
-import { StyledLink, Icon } from "../../pages/Lists/Activities/style";
+import { Box, Fix } from "./styles";
+import { Icon } from "../../pages/Lists/Activities/style";
+import AlertFlag from "../../components/AlertFlag/index";
 
 const Students = () => {
   const dispatch = useDispatch();
@@ -24,51 +24,54 @@ const Students = () => {
   const handleExclusion = (id) => {
     dispatch(deleteStudentThunk(id));
     setAlertState(true);
-
-    /* students.map((student) => {
-      rows = [
-        ...rows,
-        { id: student.id, col1: student.name, col2: student.group },
-      ];
-      columns = [
-        { field: "col1", headerName: "ID", width: 550 },
-        { field: "col2", headerName: "Nome", width: 150 },
-        {
-          field: "col3",
-          headerName: "Grupo",
-          renderCell: () => (
-            <StyledLink to={`/profile/${student.id}`}>+ detalhes</StyledLink>
-          ),
-          width: 150,
-        },
-        {
-          field: "col4",
-          headerName: "Excluir",
-          width: 100,
-          renderCell: () => (
-            <Icon onClick={() => handleExclusion(student.id)}>
-              <ImBin2 />
-            </Icon>
-          ),
-        },
-      ];
-    }); */
-
-    alertState && setTimeout(() => setAlertState(false), 3000);
-
-    const columns2 = [
-      { field: "id", headerName: "ID", width: 70 },
-      { field: "name", headerName: "Nome", width: 130 },
-      { field: "group", headerName: "Grupo", width: 130 },
-      { field: "postscript", headerName: "Descrição", width: 780 },
-    ];
-
-    return (
-      <Box>
-        <DataGrid rows={students} columns={columns2} autoPageSize={true} />
-      </Box>
-    );
   };
+
+  students.map((student) => {
+    rows = [
+      ...rows,
+      {
+        id: student.id,
+        col1: student.name,
+        col2: student.group,
+        col3: student.postscript,
+      },
+    ];
+    columns = [
+      { field: "id", headerName: "ID", width: 80 },
+      { field: "col1", headerName: "Nome", width: 350 },
+      { field: "col2", headerName: "Grupo", width: 150 },
+      {
+        field: "col3",
+        headerName: "Informações",
+        width: 400,
+      },
+      {
+        field: "col4",
+        headerName: "Excluir",
+        width: 100,
+        renderCell: () => (
+          <Icon onClick={() => handleExclusion(student.id)}>
+            <ImBin2 />
+          </Icon>
+        ),
+      },
+    ];
+  });
+
+  alertState && setTimeout(() => setAlertState(false), 3000);
+
+  return (
+    <>
+      <Fix>
+        {alertState && (
+          <AlertFlag severity="success" text="Estudante excluido com sucesso" />
+        )}
+      </Fix>
+      <Box>
+        <DataGrid rows={rows} columns={columns} autoPageSize={true} />
+      </Box>
+    </>
+  );
 };
 
 export default Students;
