@@ -1,12 +1,15 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { getProfileThunk } from "../../store/modules/profile/thunk";
 import { Button } from "../../pages/Lists/Students/styled";
+import { Flex } from "./styles";
 
-const SearchById = () => {
+const SearchById = (ID) => {
   const dispatch = useDispatch();
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(ID);
+  const history = useHistory();
 
   return (
     <>
@@ -14,12 +17,15 @@ const SearchById = () => {
       <input
         type="number"
         onChange={(e) => setId(Number(e.target.value))}
-        placeholder="Insira ID"
+        placeholder="Inserir ID do aluno"
       />
       <br />
-      <Button onClick={() => dispatch(getProfileThunk(id))}>
-        Obter Informações
-      </Button>
+      <Flex>
+        <Button onClick={() => history.push("/students")}>Voltar</Button>
+        <Button onClick={() => dispatch(getProfileThunk(id))}>
+          Obter Informações
+        </Button>
+      </Flex>
     </>
   );
 };

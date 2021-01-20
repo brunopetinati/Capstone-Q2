@@ -20,7 +20,7 @@ const Routes = () => {
   console.log(state);
 
   return (
-    <>
+    <AnimatePresence>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -57,7 +57,7 @@ const Routes = () => {
           <Redirect to="/" />
         )}
       </Switch>
-    </>
+    </AnimatePresence>
   );
 };
 
