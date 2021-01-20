@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
-import {useHistory, Link} from 'react-router-dom';
-import { DataGrid} from "@material-ui/data-grid";
+import {useHistory} from 'react-router-dom';
 import {
   Container,
   StyledLink,
@@ -9,15 +8,16 @@ import {
 import {Button} from '../../Register/Activities/style';
 import {useSelector, useDispatch} from  'react-redux';
 import {listActivitiesThunk, deleteActivitiesThunk} from '../../../store/modules/activities/thunk';
-import Header from "../../../components/Header/index";
 import {ImBin2} from 'react-icons/im';
+import { DataGrid} from "@material-ui/data-grid";
+import { motion } from "framer-motion";
 
 const Activities = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const activities = useSelector((state) => state.activities);
-  let rows = []
-  let columns = []
+  let rows = [];
+  let columns = [];
 
   useEffect(() => {
     dispatch(listActivitiesThunk());
@@ -35,8 +35,12 @@ const Activities = () => {
 
 
   return (
-    <div>
-      <Header />      
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >    
       <Container>
         <div style={{ height: 450, width: '100%' }}>
           <DataGrid columns={columns} rows={rows}/>
@@ -45,7 +49,7 @@ const Activities = () => {
           Cadastrar
         </Button>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

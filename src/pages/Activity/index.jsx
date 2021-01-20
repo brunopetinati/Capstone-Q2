@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
+import {motion} from 'framer-motion';
 import {
     Container,
     Title,
@@ -20,6 +21,12 @@ const Activity = () =>{
     const activity = activities.filter((activity) => activity.id.toString() === id);
 
     return(
+      <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
             <Container>
                 {activity.map(({name, date, description, students, link}, index) =>{
                     return(
@@ -46,7 +53,8 @@ const Activity = () =>{
                         )
                 })}
             </Container>
+            </motion.div>
     )
 }
 
-export default Activity
+export default Activity;

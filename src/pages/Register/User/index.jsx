@@ -5,7 +5,7 @@ import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
-import Header from "../../../components/Header/index";
+import { motion } from "framer-motion";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -17,7 +17,7 @@ const User = (props) => {
 
     password: yup
       .string()
-      .min(4, "É necessário digitar ao menos 6 dígitos.")
+      .min(4, "É necessário digitar ao menos 4 dígitos.")
       .required("Campo obrigatório"),
 
     passwordConfirm: yup
@@ -40,8 +40,12 @@ const User = (props) => {
   };
 
   return (
-    <>
-      <Header></Header>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <Container>
         <FormContainer>
           <Title>Cadastro</Title>
@@ -52,12 +56,17 @@ const User = (props) => {
             </div>
             <p></p>
             <div>
-              <Input placeholder="email" name="email" ref={register}></Input>
+              <Input placeholder="Email" name="email" ref={register}></Input>
               <Error>{errors.email?.message}</Error>
             </div>
             <p></p>
             <div>
-              <Input placeholder="Senha" name="password" ref={register}></Input>
+              <Input
+                placeholder="Senha"
+                name="password"
+                ref={register}
+                type="password"
+              ></Input>
               <Error>{errors.password?.message}</Error>
               <p></p>
             </div>
@@ -66,17 +75,16 @@ const User = (props) => {
                 placeholder="Confirmar senha"
                 name="passwordConfirm"
                 ref={register}
+                type="password"
               ></Input>
               <Error>{errors.passwordConfirm?.message}</Error>
               <p></p>
             </div>
-            <div>
-              <Button type="submit">Entrar</Button>
-            </div>
+            <Button type="submit">Entrar</Button>
           </form>
         </FormContainer>
       </Container>
-    </>
+    </motion.div>
   );
 };
 
