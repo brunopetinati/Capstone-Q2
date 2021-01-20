@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <div className="container">
-      {state.token === "" ? (
+      {!state.token === "" ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
@@ -39,19 +39,6 @@ const Header = () => {
                 Cadastro
               </div>
             </div>
-            <div
-              className="userMenu"
-              onClick={() => {
-                console.log("menu de usuario");
-              }}
-            >
-              <img
-                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-                alt="userAvatar"
-                width="25vw"
-              />
-              <div>UserName</div>
-            </div>
           </div>
           <div className="headerMobile">
             <Button
@@ -59,7 +46,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon style={{ fontSize: "40" }} />
+              <MenuRoundedIcon style={{ fontSize: "40", color: "white" }} />
             </Button>
             <Menu
               id="fade-menu"
@@ -94,19 +81,33 @@ const Header = () => {
                 Meus Alunos
               </div>
             </div>
-            <div
-              className="userMenu"
-              onClick={() => {
-                console.log("menu de usuario");
-              }}
-            >
-              <img
-                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-                alt="userAvatar"
-                width="25vw"
-              />
-              <div>UserName</div>
+            <div className="userMenu">
+              <Button
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <div className="newButton">
+                  <img
+                    src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+                    alt="userAvatar"
+                    width="25vw"
+                  />
+                  <div>UserName</div>
+                </div>
+              </Button>
             </div>
+            <Menu
+              id="fade-menu2"
+              anchorEl={anchorEl}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+              {" "}
+              <MenuItem>Logout</MenuItem>
+            </Menu>
           </div>
           <div className="headerMobile">
             <Button
@@ -114,7 +115,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon style={{ fontSize: "4rem" }} />
+              <MenuRoundedIcon style={{ fontSize: "4rem", color: "white" }} />
             </Button>
             <Menu
               id="fade-menu"

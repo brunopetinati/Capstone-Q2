@@ -3,18 +3,31 @@ body {
 }
 
 .bodyContainer {
-  text-align: center;
-  padding: 5vw;
+  margin-top: 20vh;
+  height: 60vh;
+  /* padding: 0 5vw 0 5vw; */
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 
 .bodyText {
   color: #1d3557;
-  width: 30vw;
+  width: 80vw;
+  text-align: center;
+  margin-right: 5vw;
 }
 
 .img {
-  width: 30vw;
+  width: 40vw;
+}
+
+@media screen and (max-width: 950px) {
+}
+@media screen and (min-width: 600px) {
+  .bodyContainer {
+    margin-top: 12vh;
+    flex-direction: row;
+  }
 }
