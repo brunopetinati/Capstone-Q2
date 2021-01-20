@@ -9,7 +9,11 @@ const loginThunk = (result) => (dispatch) => {
       window.localStorage.setItem("authToken", res.data.accessToken);
       dispatch(userLogin(res.data.accessToken));
     })
-    .catch((err) => console.log(err));
+    .catch(() =>
+      alert(
+        "Não foi possível efetuar o login. Por favor, verifique o usuário ou a senha."
+      )
+    );
 };
 
 export default loginThunk;

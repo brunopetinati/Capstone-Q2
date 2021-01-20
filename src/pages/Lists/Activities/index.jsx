@@ -12,6 +12,7 @@ import {
 import { Button } from "../../Register/Activities/style";
 import { useSelector, useDispatch } from "react-redux";
 import { listActivitiesThunk } from "../../../store/modules/activities/thunk";
+import { motion } from "framer-motion";
 
 const Activities = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,12 @@ const Activities = () => {
   });
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <Button onClick={() => history.push("/activitiesregister")}>
         Cadastrar
       </Button>
@@ -56,7 +62,7 @@ const Activities = () => {
           <DataGrid columns={columns} rows={rows} />
         </div>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

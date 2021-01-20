@@ -5,6 +5,8 @@ import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
+import { motion } from "framer-motion";
+
 //import { Input, Button, Title, Error } from "./../Register/Activities/style";
 
 const Login = (props) => {
@@ -14,7 +16,7 @@ const Login = (props) => {
 
     password: yup
       .string()
-      .min(4, "É necessário digitar ao menos 6 dígitos.")
+      .min(4, "É necessário digitar ao menos 4 dígitos.")
       .required("Campo obrigatório"),
   });
 
@@ -30,18 +32,32 @@ const Login = (props) => {
   };
 
   return (
+<<<<<<< HEAD
     <>
+=======
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
+>>>>>>> ece26d2d5cd91c88d6ba9b48836513e3e246417f
       <Container>
         <FormContainer>
           <Title>Login</Title>
           <form onSubmit={handleSubmit(handleForm)}>
             <div>
-              <Input placeholder="email" name="email" ref={register}></Input>
+              <Input placeholder="Email" name="email" ref={register}></Input>
               <Error>{errors.email?.message}</Error>
             </div>
             <p></p>
             <div>
-              <Input placeholder="Senha" name="password" ref={register}></Input>
+              <Input
+                placeholder="Senha"
+                name="password"
+                ref={register}
+                type="password"
+              ></Input>
               <Error>{errors.password?.message}</Error>
               <p></p>
             </div>
@@ -51,7 +67,7 @@ const Login = (props) => {
           </form>
         </FormContainer>
       </Container>
-    </>
+    </motion.div>
   );
 };
 
