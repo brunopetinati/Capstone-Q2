@@ -10,16 +10,10 @@ import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
 import "./header.css";
 
 const Header = () => {
-<<<<<<< HEAD
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const state = useSelector((state) => state.login);
-=======
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   console.log(state);
->>>>>>> ece26d2d5cd91c88d6ba9b48836513e3e246417f
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -33,7 +27,7 @@ const Header = () => {
 
   return (
     <div className="container">
-      {!state.token === "" ? (
+      {state.token === "" ? (
         <>
           <div className="headerDesktop">
             <div className="headerButtons">
