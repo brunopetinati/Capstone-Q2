@@ -1,2 +1,5 @@
-export const ADD_ACTIVITY = '@activities/ADD_ACTIVITY';
-export const LIST_ACTIVITY = '@activities/LIST_ACTIVITY';
+export const LIST_ACTIVITIES = '@activities/LIST_ACTIVITIES';
+
+export const ADD_ACTIVITIES = '@activities/ADD_ACTIVITIES';
+
+export const DELETE_ACTIVITIES = '@activities/DELETE_ACTIVITIES';

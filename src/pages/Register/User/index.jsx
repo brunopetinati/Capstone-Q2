@@ -4,6 +4,8 @@ import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Container, FormContainer, Input, Button, Title, Error } from "./style";
+import { motion } from "framer-motion";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -15,7 +17,7 @@ const User = (props) => {
 
     password: yup
       .string()
-      .min(4, "É necessário digitar ao menos 6 dígitos.")
+      .min(4, "É necessário digitar ao menos 4 dígitos.")
       .required("Campo obrigatório"),
 
     passwordConfirm: yup
@@ -38,35 +40,51 @@ const User = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <div>
-        <input placeholder="Nome" name="name" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="email" name="email" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="Senha" name="password" ref={register}></input>
-        {errors.password?.message}
-        <p></p>
-      </div>
-      <div>
-        <input
-          placeholder="Confirmar senha"
-          name="passwordConfirm"
-          ref={register}
-        ></input>
-        <p style={{ color: "red" }}>{errors.passwordConfirm?.message}</p>
-        <p></p>
-      </div>
-      <div>
-        <button type="submit">Entrar</button>
-      </div>
-    </form>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
+      <Container>
+        <FormContainer>
+          <Title>Cadastro</Title>
+          <form onSubmit={handleSubmit(handleForm)}>
+            <div>
+              <Input placeholder="Nome" name="name" ref={register}></Input>
+              <Error>{errors.name?.message}</Error>
+            </div>
+            <p></p>
+            <div>
+              <Input placeholder="Email" name="email" ref={register}></Input>
+              <Error>{errors.email?.message}</Error>
+            </div>
+            <p></p>
+            <div>
+              <Input
+                placeholder="Senha"
+                name="password"
+                ref={register}
+                type="password"
+              ></Input>
+              <Error>{errors.password?.message}</Error>
+              <p></p>
+            </div>
+            <div>
+              <Input
+                placeholder="Confirmar senha"
+                name="passwordConfirm"
+                ref={register}
+                type="password"
+              ></Input>
+              <Error>{errors.passwordConfirm?.message}</Error>
+              <p></p>
+            </div>
+            <Button type="submit">Entrar</Button>
+          </form>
+        </FormContainer>
+      </Container>
+    </motion.div>
   );
 };
 

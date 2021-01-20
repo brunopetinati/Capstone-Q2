@@ -1,55 +1,88 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
-import { addActivityThunk } from "../../../store/modules/activities/thunk";
+import { addActivitiesThunk} from "../../../store/modules/activities/thunk";
 import {useHistory} from 'react-router-dom';
+import AlertFlag from '../../../components/AlertFlag';
+import {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {getStudentsThunk} from '../../../store/modules/students/thunk';
 import {
   Container,
   Form,
   Input,
   MainInfo,
   TextArea,
-  StudentInfo,
   ButtonContainer,
   Button,
   Title,
-  Error
+  Error,
+  List,
+  Date
 } from './style';
-import Students from '../../../components/transfer';
+import {motion} from 'framer-motion'
 
 const ActivitiesRegister = () => {
+  const [alertState, setAlertState] = useState(false);
+  const [selected, setSelected] = useState([]);
+
+  const students = useSelector((state) => state.students);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const schema = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
     date: yup.string().required("Campo Obrigatório"),
     description: yup.string(),
-    link: yup.string(),
+    link: yup.string(),  
   });
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const registerActivity = (data) => {
-    dispatch(addActivityThunk(data));
+  const registerActivity = (data, event) => {
+    dispatch(addActivitiesThunk(data));
+    setAlertState(true)
+    event.target.reset()
   };
+
+  useEffect(() => {
+    dispatch(getStudentsThunk());
+  }, [dispatch]);
+  console.log(selected)
+  alertState && setTimeout(() => setAlertState(false), 3000)
+
+  
+
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
     <Container>
       <Form onSubmit={handleSubmit(registerActivity)}>
+      {alertState && <AlertFlag severity="success" text="Atividade Cadastrada com Sucesso"/>}
         <Title>Cadastrar</Title>
         <MainInfo>
           <Input name="name" placeholder="Atividade" ref={register} />
           {errors.activity && <Error>{errors.activity.message}</Error>}
-          <Input name="date" type="date" ref={register} />
+          <Date name="date" type="date" ref={register} />
           {errors.date && <Error>{errors.date.message}</Error>}
         </MainInfo>        
-        <StudentInfo>
-        <TextArea name="description" placeholder="Descrição" />
+        
+        <TextArea name="description" placeholder="Descrição" ref={register}/>
         {errors.description && <Error>{errors.description.message}</Error>}
-            <Students/>
-        </StudentInfo>
-        <Input name="link" placeholder="Link da atividade" />
+        <h3>Alunos</h3>
+            <List>
+              {students.map(({name, group}, index) =>{
+                return(
+                  <li key={index}><input ref={register} name="students" type="checkbox" value={`${name} - ${group}`} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
+                )
+              })}
+            </List>
+        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}} ref={register}/>
         {errors.link && <Error>{errors.link.message}</Error>}
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
@@ -57,6 +90,7 @@ const ActivitiesRegister = () => {
         </ButtonContainer>
       </Form>
     </Container>
+    </motion.div>
   );
 };
 
