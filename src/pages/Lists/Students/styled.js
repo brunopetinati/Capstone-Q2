@@ -26,7 +26,7 @@ export const Button = styled.button`
 export const SmallContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 60vh;
   margin-top: 2vh;
 `;

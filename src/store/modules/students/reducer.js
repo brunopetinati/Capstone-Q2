@@ -1,4 +1,8 @@
-import { GET_STUDENTS, REGISTER_STUDENT } from "./actions-types";
+import {
+  GET_STUDENTS,
+  REGISTER_STUDENT,
+  DELETE_STUDENT,
+} from "./actions-types";
 
 const studentsReducer = (state = [], action) => {
   switch (action.type) {
@@ -9,6 +13,10 @@ const studentsReducer = (state = [], action) => {
     case REGISTER_STUDENT:
       const { student } = action;
       return [...state, student];
+
+    case DELETE_STUDENT:
+      const { id } = action;
+      return id;
 
     default:
       return state;
