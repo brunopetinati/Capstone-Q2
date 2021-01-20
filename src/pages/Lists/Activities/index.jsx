@@ -1,5 +1,6 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import {Alert} from '@material-ui/lab';
 import {
   Container,
   StyledLink,
@@ -15,6 +16,7 @@ import { motion } from "framer-motion";
 const Activities = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [alertState, setAlertState] = useState(false)
   const activities = useSelector((state) => state.activities);
   let rows = [];
   let columns = [];
@@ -23,16 +25,22 @@ const Activities = () => {
     dispatch(listActivitiesThunk());
   }, [dispatch]);
 
+  const handleExclusion = (id) =>{
+    dispatch(deleteActivitiesThunk(id))
+    setAlertState(true)
+  }
+
   activities.map((activity) =>{
     rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.date}] 
     columns = [
       { field: 'col1', headerName: 'Atividade', width: 550 },
       { field: 'col2', headerName: 'Data', width: 150 },
       { field: 'col3', headerName: 'Detalhes', renderCell: () => <StyledLink to={`/activities/${activity.id}`}>+ detalhes</StyledLink>, width: 150 },
-      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <Icon onClick={() => dispatch(deleteActivitiesThunk(activity.id))}><ImBin2/></Icon>}
+      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <Icon onClick={() => handleExclusion(activity.id)}><ImBin2/></Icon>}
     ]
 })
 
+  alertState && setTimeout(() => setAlertState(false), 3000)
 
   return (
     <motion.div
@@ -42,6 +50,7 @@ const Activities = () => {
       transition={{ duration: 2 }}
     >    
       <Container>
+        {alertState && <Alert severity="success">Atividade excluida com sucesso</Alert>}
         <div style={{ height: 450, width: '100%' }}>
           <DataGrid columns={columns} rows={rows}/>
         </div> 
