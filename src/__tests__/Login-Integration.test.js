@@ -28,7 +28,7 @@ describe("When the user sign in ", () => {
     );
     userEvent.type(screen.getByRole("textbox"), "joana@gmail.com");
     userEvent.click(screen.getByRole("button"));
-    const returnProfessor = await screen.findByText("professores");
+    const returnProfessor = await screen.findByText("");
     expect(returnProfessor).toBeInTheDocument();
   });
 });

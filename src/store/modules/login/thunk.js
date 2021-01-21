@@ -1,4 +1,3 @@
-import { Refresh } from "@material-ui/icons";
 import api from "../../../services/api";
 import { userLogin } from "./actions";
 import Swal from "sweetalert2";
@@ -14,9 +13,6 @@ const loginThunk = (result, history) => (dispatch) => {
       window.location.reload();
     })
     .catch(() =>
-      // alert(
-      //   "Não foi possível efetuar o login. Por favor, verifique o usuário ou a senha."
-      // )
       Swal.fire({
         title: "Ops!",
         text: "Email ou Senha invalidos!",
