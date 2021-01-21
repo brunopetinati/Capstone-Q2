@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import userThunk from "./../../../store/modules/users/thunk";
 import { useHistory } from "react-router-dom";
@@ -25,8 +24,8 @@ const User = (props) => {
       .oneOf([yup.ref("password")], "senhas diferentes"),
   });
 
-  const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, setValue, errors } = useForm({
+    validationSchema: schema,
   });
 
   const history = useHistory();
