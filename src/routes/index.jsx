@@ -33,7 +33,7 @@ const Routes = () => {
           <Register />
         </Route>
 
-        {state.token !== "" ? (
+        {state.token ? (
           <>
             <Route exact path="/studentregister">
               <StudentRegister />
@@ -41,7 +41,7 @@ const Routes = () => {
             <Route exact path="/students">
               <Students />
             </Route>
-            <Route exact path="/profile">
+            <Route exact path="/students/:id">
               <ProfilePage />
             </Route>
             <Route exact path="/activitiesregister">

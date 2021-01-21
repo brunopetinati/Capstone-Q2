@@ -14,13 +14,13 @@ import {
   MainInfo,
   TextArea,
   ButtonContainer,
-  Button,
   Title,
   Error,
   List,
   Date
 } from './style';
-import {motion} from 'framer-motion'
+import {motion} from 'framer-motion';
+import {Button} from '../../Login/style';
 
 const ActivitiesRegister = () => {
   const [alertState, setAlertState] = useState(false);
@@ -49,7 +49,7 @@ const ActivitiesRegister = () => {
   useEffect(() => {
     dispatch(getStudentsThunk());
   }, [dispatch]);
-  console.log(selected)
+ 
   alertState && setTimeout(() => setAlertState(false), 3000)
 
   
@@ -66,24 +66,29 @@ const ActivitiesRegister = () => {
       {alertState && <AlertFlag severity="success" text="Atividade Cadastrada com Sucesso"/>}
         <Title>Cadastrar</Title>
         <MainInfo>
-          <Input name="name" placeholder="Atividade" ref={register} />
-          {errors.activity && <Error>{errors.activity.message}</Error>}
-          <Date name="date" type="date" ref={register} />
-          {errors.date && <Error>{errors.date.message}</Error>}
+          <div>
+            {errors.name && <Error>{errors.name.message}</Error>}
+            <Input name="name" placeholder="Atividade" ref={register} />
+            
+          </div>
+          <div>
+            {errors.date && <Error>{errors.date.message}</Error>}
+            <Date name="date" type="date" ref={register} />
+          </div>
+          
+          
         </MainInfo>        
         
         <TextArea name="description" placeholder="Descrição" ref={register}/>
-        {errors.description && <Error>{errors.description.message}</Error>}
         <h3>Alunos</h3>
             <List>
-              {students.map(({name, group}, index) =>{
+              {students && students.map(({name, group}, index) =>{
                 return(
                   <li key={index}><input ref={register} name="students" type="checkbox" value={`${name} - ${group}`} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
                 )
               })}
             </List>
-        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}} ref={register}/>
-        {errors.link && <Error>{errors.link.message}</Error>}
+        <Input name="link" placeholder="Link da atividade"  ref={register}/>
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
           <Button type="submit">Cadastrar</Button>

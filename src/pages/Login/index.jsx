@@ -25,8 +25,8 @@ const Login = (props) => {
   });
 
   const handleForm = (data) => {
-    dispatch(loginThunk(data));
-    history.push("/activities");
+    dispatch(loginThunk(data, history));
+    // history.push("/");
   };
 
   return (

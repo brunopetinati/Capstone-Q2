@@ -33,9 +33,9 @@ const User = (props) => {
   const dispatch = useDispatch();
 
   const handleForm = (data) => {
-    dispatch(userThunk(data));
+    dispatch(userThunk(data, history));
     console.log(data);
-    history.push("/login");
+    // history.push("/login");
   };
 
   return (

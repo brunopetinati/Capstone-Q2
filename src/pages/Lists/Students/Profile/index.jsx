@@ -1,6 +1,5 @@
 import { Background, Box } from "./styled";
 import Profile from "../../../../components/GetProfile/index";
-import SearchById from "../../../../components/SearchById/index";
 import { motion } from "framer-motion";
 
 const ProfilePage = () => {
@@ -15,7 +14,6 @@ const ProfilePage = () => {
         <Box>
           <Profile />
         </Box>
-        <SearchById />
       </Background>
     </motion.div>
   );

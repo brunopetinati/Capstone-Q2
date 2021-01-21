@@ -4,13 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProfileThunk } from "../../store/modules/profile/thunk";
 import { Container, Name, Group, PostScript } from "./styles";
 import { motion } from "framer-motion";
+import {useParams, useHistory} from 'react-router-dom';
+import {Button} from '../../pages/Login/style';
 
 const Profile = () => {
+  const {id} = useParams();
   const dispatch = useDispatch();
   const student = useSelector((state) => state.profile);
+  const history = useHistory();
 
   useEffect(() => {
-    dispatch(getProfileThunk());
+    dispatch(getProfileThunk(id));
   }, [dispatch]);
 
   return (
@@ -25,6 +29,7 @@ const Profile = () => {
         <Group>{student.group}</Group>
       </Container>
       <PostScript>{student.postscript}</PostScript>
+      <Button onClick={() => history.push("/students")}>Voltar</Button>
     </motion.div>
   );
 };
