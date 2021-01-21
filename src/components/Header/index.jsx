@@ -6,10 +6,13 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
-
+// import jwt_decode from "jwt-decode";
 import "./header.css";
 
 const Header = () => {
+  // let token = window.localStorage.getItem("authToken");
+  // let decoded = jwt_decode(token);
+  // console.log(decoded);
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -88,6 +91,7 @@ const Header = () => {
                 aria-controls="fade-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
+                // disableRipple="true"
               >
                 <div className="newButton">
                   <img
@@ -95,7 +99,8 @@ const Header = () => {
                     alt="userAvatar"
                     width="25vw"
                   />
-                  <div>UserName</div>
+                  {/* {decoded.email} */}
+                  Nome User
                 </div>
               </Button>
             </div>
