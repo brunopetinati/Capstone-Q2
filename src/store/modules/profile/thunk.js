@@ -14,7 +14,5 @@ export const getProfileThunk = (id) => async (dispatch, getState) => {
     console.log(student.data);
     const profile = student.data;
     dispatch(getProfile(profile));
-  } catch (err) {
-    console.error(err);
-  }
+  } catch (err) {}
 };

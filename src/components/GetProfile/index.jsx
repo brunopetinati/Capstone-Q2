@@ -9,8 +9,6 @@ const Profile = () => {
   const dispatch = useDispatch();
   const student = useSelector((state) => state.profile);
 
-  console.log(student);
-
   useEffect(() => {
     dispatch(getProfileThunk());
   }, [dispatch]);

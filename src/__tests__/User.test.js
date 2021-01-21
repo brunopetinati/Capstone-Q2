@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import User from "./index";
-import store from "./../../../store";
+import User from "../pages/Register/User/index";
+import store from "../store";
 
 test("renders registering page", () => {
   render(
@@ -9,6 +9,6 @@ test("renders registering page", () => {
       <User />
     </Provider>
   );
-  const linkElement = screen.getByText(/Cadastro/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText(/Cadastro/i);
+  expect(textElement).toBeInTheDocument();
 });
