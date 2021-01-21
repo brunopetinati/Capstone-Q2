@@ -4,16 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProfileThunk } from "../../store/modules/profile/thunk";
 import { Container, Name, Group, PostScript } from "./styles";
 import { motion } from "framer-motion";
-import {useParams, useHistory} from 'react-router-dom';
-import {Button} from '../../pages/Login/style';
+import { useParams, useHistory } from "react-router-dom";
+import { Button } from "../../pages/Login/style";
 
 const Profile = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const student = useSelector((state) => state.profile);
   const history = useHistory();
-
-  console.log(student);
 
   useEffect(() => {
     dispatch(getProfileThunk(id));
