@@ -93,6 +93,14 @@ const Header = () => {
                 onClick={handleClick}
                 // disableRipple="true"
               >
+                <button
+                  onClick={() => {
+                    window.localStorage.removeItem("authToken");
+                    window.location.reload();
+                  }}
+                >
+                  Sair
+                </button>
                 <div className="newButton">
                   <img
                     src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
