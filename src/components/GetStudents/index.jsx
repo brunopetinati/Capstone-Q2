@@ -1,30 +1,53 @@
-import { DataGrid } from "@material-ui/data-grid";
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getStudentsThunk } from "../../store/modules/students/thunk";
-import { Box } from "./styles";
+import AlertFlag from '../AlertFlag';
+import Table from '../Table';
+import Pages from '../pagination';
+import {Box} from './styles';
 
 const Students = () => {
   const dispatch = useDispatch();
   const students = useSelector((state) => state.students);
+  const [alertState, setAlertState] = useState(false)
+  const [lastIndex, setLastIndex] = useState(0)
+  const [nextPage, setNextPage] = useState(5)
 
-  console.log(students);
 
   useEffect(() => {
     dispatch(getStudentsThunk());
+    setAlertState(true)
   }, [dispatch]);
 
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "name", headerName: "Nome", width: 130 },
-    { field: "group", headerName: "Grupo", width: 130 },
-    { field: "postscript", headerName: "Descrição", width: 780 },
-  ];
+  const page = students.slice(lastIndex, nextPage);
+  
 
+  alertState && setTimeout(() => setAlertState(false), 3000)
   return (
-    <Box>
-      <DataGrid rows={students} columns={columns} autoPageSize={true} />
-    </Box>
+    <>   
+        <Box>
+        <Pages 
+        items={students}
+        setLastIndex={setLastIndex}
+        setNextPage={setNextPage}
+        lastIndex={lastIndex}
+        nextPage={nextPage}
+        />
+        </Box>
+        {alertState && <AlertFlag severity="success" text="Aluno excluido com sucesso"/>}
+        
+        <Table
+        title="Nome"
+        info="Turma"
+        details="Detalhes"
+        isActivity={false}
+        remove="Excluir"
+        data={page}
+        detailsRoute="students"
+        registerRoute="studentregister"
+        />
+        
+    </>
   );
 };
 

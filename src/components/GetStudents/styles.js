@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  margin: 0 auto;
-  background-color: white;
+  margin: 5% auto;
+  margin-bottom: -10%;
   width: 60vw;
-  height: 60vh;
-
   @media (max-width: 1000px) {
     width: 90vw;
     height: 80vh;

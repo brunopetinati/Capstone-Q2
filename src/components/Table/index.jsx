@@ -4,12 +4,14 @@ import {
     TableHead,
     TableRow,
     TableCell,
-    Icon
+    Icon,
+    StyledLink
 } from './style';
 import {Link, useHistory} from 'react-router-dom';
 import {ImBin2} from 'react-icons/im';
+import {Button} from '../../pages/Login/style';
 
-const Table = ({title, info, details, remove, data, detailsRoute, registerRoute, handleRemove}) =>{
+const Table = ({title, info, details, remove, data, detailsRoute, registerRoute, handleRemove, isActivity}) =>{
     const history = useHistory();
     return(
         <Container>
@@ -24,14 +26,14 @@ const Table = ({title, info, details, remove, data, detailsRoute, registerRoute,
                 return(
                     <TableRow key={index}>
                         <TableCell>{item.name}</TableCell>
-                        <TableCell>{item.date}</TableCell>
-                        <TableCell><Link to={`/${detailsRoute}/${item.id}`}>+ detalhes</Link></TableCell>
+                        {isActivity ? <TableCell>{item.date}</TableCell> : <TableCell>{item.group}</TableCell>}
+                        <TableCell><StyledLink to={`/${detailsRoute}/${item.id}`}>+ detalhes</StyledLink></TableCell>
                         <TableCell><Icon onClick={() => {handleRemove(item.id)}}><ImBin2/></Icon></TableCell>
                     </TableRow>
                 )
             })}
             </StyledTable>
-            <button onClick={() => history.push(`/${registerRoute}`)}>Cadastrar</button>
+            <Button onClick={() => history.push(`/${registerRoute}`)}>Cadastrar</Button>
         </Container>
     )
 }
