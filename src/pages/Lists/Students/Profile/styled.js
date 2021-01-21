@@ -18,4 +18,8 @@ export const Box = styled.div`
   width: 60vw;
   height: 55vh;
   border-radius: 50px;
+  @media(max-width: 600px){
+    width: 80vw;
+    height: 80vh;
+  }
 `;

@@ -13,10 +13,3 @@ export const addActivities = (activity) =>(
         activity
     }
 )
-
-export const deleteActivities = (id) =>(
-    {
-        type: DELETE_ACTIVITIES,
-        id
-    }
-)
