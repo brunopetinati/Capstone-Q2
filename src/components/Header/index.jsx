@@ -6,17 +6,22 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
-// import jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import "./header.css";
 
 const Header = () => {
-  // let token = window.localStorage.getItem("authToken");
-  // let decoded = jwt_decode(token);
-  // console.log(decoded);
+  const token = window.localStorage.getItem("authToken");
+
+  function decoded(token) {
+    if (token) {
+      return jwt_decode(token);
+    }
+    return null;
+  }
+  console.log(decoded(token));
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  console.log(state);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -87,30 +92,22 @@ const Header = () => {
               </div>
             </div>
             <div className="userMenu">
-              <Button
-                aria-controls="fade-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-                // disableRipple="true"
+              <img
+                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+                alt="userAvatar"
+                width="25vw"
+              />
+              <div className="userName">{decoded(token).email}</div>
+
+              <div
+                className="exitButton"
+                onClick={() => {
+                  window.localStorage.removeItem("authToken");
+                  window.location.reload();
+                }}
               >
-                <button
-                  onClick={() => {
-                    window.localStorage.removeItem("authToken");
-                    window.location.reload();
-                  }}
-                >
-                  Sair
-                </button>
-                <div className="newButton">
-                  <img
-                    src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-                    alt="userAvatar"
-                    width="25vw"
-                  />
-                  {/* {decoded.email} */}
-                  Nome User
-                </div>
-              </Button>
+                Sair
+              </div>
             </div>
             <Menu
               id="fade-menu2"
