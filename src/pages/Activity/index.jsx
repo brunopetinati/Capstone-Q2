@@ -14,9 +14,11 @@ import {
     Subtitle
 } from './style';
 import {Button} from '../Register/Activities/style';
+import {useHistory} from 'react-router-dom';
 
 const Activity = () =>{
     const {id} = useParams();
+    const history = useHistory();
     const activities = useSelector(state => state.activities);
     const activity = activities.filter((activity) => activity.id.toString() === id);
 
@@ -48,7 +50,7 @@ const Activity = () =>{
                                 })}
                                 </List>
                             </ListContainer>
-                            <Button>Voltar</Button>
+                            <Button onClick={() => history.push("/activities")}>Voltar</Button>
                         </div>
                         )
                 })}

@@ -19,7 +19,6 @@ const Activities = () => {
   const [alertState, setAlertState] = useState(false)
   const activities = useSelector((state) => state.activities);
   let rows = [];
-  let columns = [];
 
   useEffect(() => {
     dispatch(listActivitiesThunk());
@@ -32,13 +31,15 @@ const Activities = () => {
 
   activities.map((activity) =>{
     rows= [...rows, {id: activity.id, col1: activity.name, col2: activity.date}] 
-    columns = [
-      { field: 'col1', headerName: 'Atividade', width: 550 },
-      { field: 'col2', headerName: 'Data', width: 150 },
-      { field: 'col3', headerName: 'Detalhes', renderCell: () => <StyledLink to={`/activities/${activity.id}`}>+ detalhes</StyledLink>, width: 150 },
-      {field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <Icon onClick={() => handleExclusion(activity.id)}><ImBin2/></Icon>}
-    ]
+    
 })
+
+const columns = [
+  { field: 'col1', headerName: 'Atividade', width: 550 },
+  { field: 'col2', headerName: 'Data', width: 150 },
+  { field: 'col3', headerName: 'Detalhes', renderCell: () => activities.map((activity, index) =><StyledLink key={index} to={`/activities/${activity.id}`}>+ detalhes</StyledLink>), width: 150 },
+  { field: 'col4', headerName: 'Excluir', width: 100, renderCell: () => <Icon onClick={() => handleExclusion}><ImBin2/></Icon>}
+]
 
   alertState && setTimeout(() => setAlertState(false), 3000)
 
