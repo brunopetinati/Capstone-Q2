@@ -35,19 +35,20 @@ export const Input = styled.input`
     box-shadow: 0 0 5px rgba(0, 96, 206, 1);
     border: 1px solid rgba(0, 96, 206, 1);
   }
-  @media (max-width: 800px) {
-    width: 80vw;
+  @media(max-width: 600px){
+    width: 75vw;
     height: 3vh;
-    margin-top: 3vh;
-    margin-left: 3vh;
+    margin-top: 1%;
   }
 `;
 export const Date = styled(Input)`
-  width: 120px;
-  @media (max-width: 400px) {
-    width: 75vw;
-  }
-`;
+  width: 10vw;
+@media(max-width: 600px){
+  width: 75vw;
+  height: 3vh;
+  margin-top: 1%;
+}
+`
 
 export const MainInfo = styled.div`
   display: flex;
@@ -71,11 +72,10 @@ export const TextArea = styled.textarea`
     box-shadow: 0 0 5px rgba(0, 96, 206, 1);
     border: 1px solid rgba(0, 96, 206, 1);
   }
-  @media (max-width: 800px) {
-    width: 70vw;
-    height: 10vh;
-    margin-top: 3vh;
-    margin-left: 3vh;
+}
+  @media(max-width: 600px){
+    width: 75vw;
+    height: 15vh;
   }
 `;
 export const ButtonContainer = styled.div`

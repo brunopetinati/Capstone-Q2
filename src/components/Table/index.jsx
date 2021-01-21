@@ -13,9 +13,10 @@ import {Button} from '../../pages/Login/style';
 
 const Table = ({title, info, details, remove, data, detailsRoute, registerRoute, handleRemove, isActivity}) =>{
     const history = useHistory();
+    const size = window.screen.width;
     return(
         <Container>
-            <StyledTable>
+          {size > 600 ? <> <StyledTable>
                 <TableRow>
                     <TableHead>{title}</TableHead>
                     <TableHead>{info}</TableHead>
@@ -26,7 +27,7 @@ const Table = ({title, info, details, remove, data, detailsRoute, registerRoute,
                 return(
                     <TableRow key={index}>
                         <TableCell>{item.name}</TableCell>
-                        {isActivity ? <TableCell>{item.date}</TableCell> : <TableCell>{item.group}</TableCell>}
+                            {isActivity ? <TableCell>{item.date}</TableCell> : <TableCell>{item.group}</TableCell>}
                         <TableCell><StyledLink to={`/${detailsRoute}/${item.id}`}>+ detalhes</StyledLink></TableCell>
                         <TableCell><Icon onClick={() => {handleRemove(item.id)}}><ImBin2/></Icon></TableCell>
                     </TableRow>
@@ -34,6 +35,24 @@ const Table = ({title, info, details, remove, data, detailsRoute, registerRoute,
             })}
             </StyledTable>
             <Button onClick={() => history.push(`/${registerRoute}`)}>Cadastrar</Button>
+          </> 
+          : <><StyledTable>
+                <TableRow>
+                    <TableHead>{title}</TableHead>
+                    <TableHead>{details}</TableHead>
+                    <TableHead>{remove}</TableHead>
+                </TableRow>
+            {data.map((item, index) =>{
+                return(
+                    <TableRow key={index}>
+                        <TableCell>{item.name}</TableCell>
+                        <TableCell><StyledLink to={`/${detailsRoute}/${item.id}`}>+ detalhes</StyledLink></TableCell>
+                        <TableCell><Icon onClick={() => {handleRemove(item.id)}}><ImBin2/></Icon></TableCell>
+                    </TableRow>
+                )
+            })}
+            </StyledTable>
+            <Button onClick={() => history.push(`/${registerRoute}`)}>Cadastrar</Button> </>}
         </Container>
     )
 }

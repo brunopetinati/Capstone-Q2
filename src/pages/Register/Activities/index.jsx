@@ -49,7 +49,7 @@ const ActivitiesRegister = () => {
   useEffect(() => {
     dispatch(getStudentsThunk());
   }, [dispatch]);
-  console.log(selected)
+ 
   alertState && setTimeout(() => setAlertState(false), 3000)
 
   
@@ -73,7 +73,7 @@ const ActivitiesRegister = () => {
           </div>
           <div>
             {errors.date && <Error>{errors.date.message}</Error>}
-            <Date name="date" type="date" ref={register} style={{width: "10vw"}} />
+            <Date name="date" type="date" ref={register} />
           </div>
           
           
@@ -82,13 +82,13 @@ const ActivitiesRegister = () => {
         <TextArea name="description" placeholder="Descrição" ref={register}/>
         <h3>Alunos</h3>
             <List>
-              {students.map(({name, group}, index) =>{
+              {students && students.map(({name, group}, index) =>{
                 return(
                   <li key={index}><input ref={register} name="students" type="checkbox" value={`${name} - ${group}`} onChange={(e) => setSelected([...selected, e.target.value])}/>{name} - {group}</li>
                 )
               })}
             </List>
-        <Input name="link" placeholder="Link da atividade" style={{width: "64vw"}} ref={register}/>
+        <Input name="link" placeholder="Link da atividade"  ref={register}/>
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
           <Button type="submit">Cadastrar</Button>

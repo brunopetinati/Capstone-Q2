@@ -8,6 +8,10 @@ export const Container = styled.div `
     flex-direction: column;
     margin: 3% auto;
     padding: 2%;
+    @media(max-width: 600px) {
+        margin: 5% auto;
+        width: 80vw;
+    }
 `
 export const Header = styled.div `
     display: flex;
@@ -17,10 +21,16 @@ export const Header = styled.div `
 `
 export const Title = styled.h1 `
     color: #1D3557;
+    @media(max-width: 600px) {
+        margin: 5% auto;
+    }
 `
 export const Date = styled.div `
     color: #707070;
     font-size: 1.2rem;
+    @media(max-width: 600px) {
+        font-size: 1rem;
+    }
 `
 export const Subtitle = styled.div `
     color: #1D3557;
@@ -40,6 +50,9 @@ export const StyledLink = styled.a `
     color: #707070;
     width: 60vw;
     margin: 0 auto;
+    @media(max-width: 600px) {
+        margin: 0 auto;
+    }
 `
 export const ListContainer = styled.div `
 `

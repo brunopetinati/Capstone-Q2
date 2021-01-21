@@ -4,7 +4,7 @@ import { getStudentsThunk } from "../../store/modules/students/thunk";
 import AlertFlag from '../AlertFlag';
 import Table from '../Table';
 import Pages from '../pagination';
-import {Box} from './styles';
+import {Container} from '../../pages/Lists/Activities/style'
 import {deleteStudentsThunk} from '../../store/modules/students/thunk';
 
 const Students = () => {
@@ -28,8 +28,8 @@ const Students = () => {
 
   alertState && setTimeout(() => setAlertState(false), 3000)
   return (
-    <>   
-        <Box>
+    <Container>   
+        
         <Pages 
         items={students}
         setLastIndex={setLastIndex}
@@ -37,7 +37,7 @@ const Students = () => {
         lastIndex={lastIndex}
         nextPage={nextPage}
         />
-        </Box>
+
 
         {alertState && <AlertFlag severity="success" text="Aluno excluido com sucesso"/>}
         
@@ -53,7 +53,7 @@ const Students = () => {
         handleRemove={handleExclusion}
         />
         
-    </>
+    </Container>
   );
 };
 

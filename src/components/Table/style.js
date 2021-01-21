@@ -17,6 +17,12 @@ export const TableHead = styled.th `
     &:nth-last-child(4){
         text-align: left;
     }
+    @media(max-width: 600px){
+        font-size: 0.8rem;
+        &:nth-last-child(2){
+            width: 20vw;
+        }
+    }
 `
 export const TableRow = styled.tr `
     height: 45px;
@@ -29,6 +35,12 @@ export const TableCell = styled.td `
         text-align: left;
         width: 400px;
     }
+    @media(max-width: 600px){
+        &:nth-last-child(2){
+            font-size: 0.8rem;
+            
+        }
+    }
 `
 export const Container = styled.div `
     width: 80vw;
@@ -40,12 +52,21 @@ export const Container = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media(max-width: 600px) {
+        height: 80vh;
+        margin-top: 0;
+        height: 80vh;
+
+    }
 `
 export const Icon = styled.div `
     color: #00273d;
     &:hover{
         color: #da1b2b;
     }
+    @media(max-width: 600px){
+            font-size: 0.8rem;
+        }
 `
 export const StyledLink = styled(Link) `
     color: #00273d;
