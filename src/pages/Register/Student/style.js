@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #b8d3ff;
+  background-color: #a8dadc;
   color: #1d3557;
   height: 100vh;
   display: flex;
@@ -101,4 +101,38 @@ export const List = styled.ul`
   width: 65vw;
   height: 100px;
   overflow: scroll;
+`;
+
+export const Button = styled.button`
+  background-color: #da1b2b;
+  color: #fff;
+  border: none;
+  height: 4vh;
+  width: 15vw;
+  border-radius: 10px;
+  font-weight: 100;
+  margin-top: 10%;
+  margin: 0 auto;
+  outline: none;
+  cursor: pointer;
+  @media (max-width: 800px) {
+    width: 70vw;
+    height: 6vh;
+    margin-top: 3vh;
+    margin: 0 auto;
+    font-size: 20px;
+  }
+  @media (min-width: 1200px) and (max-width: 1400px) {
+    width: 15vw;
+    height: 6vh;
+    margin-top: 1vh;
+    margin: 0 auto;
+    font-size: 20px;
+  }
+  :hover {
+    background-color: #00273d;
+    color: white;
+    border: solid #a8dadc 2px;
+    transition: 0.8s;
+  }
 `;

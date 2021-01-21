@@ -5,20 +5,16 @@ import { useSelector } from "react-redux";
 import Home from "../pages/Home/";
 import Login from "../pages/Login/";
 import Register from "../pages/Register/User/";
-
 import StudentRegister from "../pages/Register/Student/";
-
 import Students from "../pages/Lists/Students/";
 import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 import Activity from "../pages/Activity";
-import Header from "../components/Header/index";
 import { AnimatePresence } from "framer-motion";
 
 const Routes = () => {
   const state = useSelector((state) => state.login);
-  console.log(state);
 
   return (
     <AnimatePresence>
