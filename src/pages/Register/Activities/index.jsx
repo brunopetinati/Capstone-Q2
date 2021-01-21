@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addActivitiesThunk} from "../../../store/modules/activities/thunk";
 import {useHistory} from 'react-router-dom';
-import Alert from '@material-ui/lab/Alert';
+import AlertFlag from '../../../components/AlertFlag';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getStudentsThunk} from '../../../store/modules/students/thunk';
@@ -20,6 +20,7 @@ import {
   List,
   Date
 } from './style';
+import {motion} from 'framer-motion'
 
 const ActivitiesRegister = () => {
   const [alertState, setAlertState] = useState(false);
@@ -54,9 +55,15 @@ const ActivitiesRegister = () => {
   
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
     <Container>
       <Form onSubmit={handleSubmit(registerActivity)}>
-      {alertState && <Alert severity="success">Atividade Cadastrada com Sucesso</Alert>}
+      {alertState && <AlertFlag severity="success" text="Atividade Cadastrada com Sucesso"/>}
         <Title>Cadastrar</Title>
         <MainInfo>
           <Input name="name" placeholder="Atividade" ref={register} />
@@ -83,6 +90,7 @@ const ActivitiesRegister = () => {
         </ButtonContainer>
       </Form>
     </Container>
+    </motion.div>
   );
 };
 

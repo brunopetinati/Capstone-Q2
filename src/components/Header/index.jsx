@@ -6,10 +6,13 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import MenuRoundedIcon from "@material-ui/icons/MenuRounded";
-
+// import jwt_decode from "jwt-decode";
 import "./header.css";
 
 const Header = () => {
+  // let token = window.localStorage.getItem("authToken");
+  // let decoded = jwt_decode(token);
+  // console.log(decoded);
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -24,6 +27,7 @@ const Header = () => {
   };
 
   let history = useHistory();
+
   return (
     <div className="container">
       {state.token === "" ? (
@@ -40,19 +44,6 @@ const Header = () => {
                 Cadastro
               </div>
             </div>
-            <div
-              className="userMenu"
-              onClick={() => {
-                console.log("menu de usuario");
-              }}
-            >
-              <img
-                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-                alt="userAvatar"
-                width="25vw"
-              />
-              <div>UserName</div>
-            </div>
           </div>
           <div className="headerMobile">
             <Button
@@ -60,7 +51,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon style={{ fontSize: "40" }} />
+              <MenuRoundedIcon style={{ fontSize: "40", color: "white" }} />
             </Button>
             <Menu
               id="fade-menu"
@@ -95,19 +86,35 @@ const Header = () => {
                 Meus Alunos
               </div>
             </div>
-            <div
-              className="userMenu"
-              onClick={() => {
-                console.log("menu de usuario");
-              }}
-            >
-              <img
-                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
-                alt="userAvatar"
-                width="25vw"
-              />
-              <div>UserName</div>
+            <div className="userMenu">
+              <Button
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+                // disableRipple="true"
+              >
+                <div className="newButton">
+                  <img
+                    src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+                    alt="userAvatar"
+                    width="25vw"
+                  />
+                  {/* {decoded.email} */}
+                  Nome User
+                </div>
+              </Button>
             </div>
+            <Menu
+              id="fade-menu2"
+              anchorEl={anchorEl}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+              {" "}
+              <MenuItem>Logout</MenuItem>
+            </Menu>
           </div>
           <div className="headerMobile">
             <Button
@@ -115,7 +122,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon style={{ fontSize: "4rem" }} />
+              <MenuRoundedIcon style={{ fontSize: "4rem", color: "white" }} />
             </Button>
             <Menu
               id="fade-menu"

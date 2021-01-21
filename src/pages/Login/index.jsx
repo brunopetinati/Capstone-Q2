@@ -1,15 +1,15 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+//import { yupResolver } from "@hookform/resolvers/yup";
+
 import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import { motion } from "framer-motion";
-
-//import { Input, Button, Title, Error } from "./../Register/Activities/style";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
 const Login = (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
@@ -20,11 +20,9 @@ const Login = (props) => {
       .required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, setValue, errors } = useForm({
+    validationSchema: schema,
   });
-
-  const history = useHistory();
 
   const handleForm = (data) => {
     dispatch(loginThunk(data));
@@ -44,7 +42,7 @@ const Login = (props) => {
           <form onSubmit={handleSubmit(handleForm)}>
             <div>
               <Input placeholder="Email" name="email" ref={register}></Input>
-              <Error>{errors.email?.message}</Error>
+              <Error>{errors.email?.message} </Error>
             </div>
             <p></p>
             <div>

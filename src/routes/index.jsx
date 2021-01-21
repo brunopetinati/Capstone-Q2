@@ -13,6 +13,7 @@ import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 import Activity from "../pages/Activity";
+import Header from "../components/Header/index";
 import { AnimatePresence } from "framer-motion";
 
 const Routes = () => {
@@ -20,7 +21,7 @@ const Routes = () => {
   console.log(state);
 
   return (
-    <>
+    <AnimatePresence>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -57,7 +58,7 @@ const Routes = () => {
           <Redirect to="/" />
         )}
       </Switch>
-    </>
+    </AnimatePresence>
   );
 };
 

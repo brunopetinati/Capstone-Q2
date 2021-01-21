@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { getProfileThunk } from "../../store/modules/profile/thunk";
 import { Container, Name, Group, PostScript } from "./styles";
