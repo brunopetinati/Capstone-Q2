@@ -1,10 +1,9 @@
-import { Background, Button, SmallContainer } from "./styled";
+import { Background } from "./styled";
 import Students from "../../../components/GetStudents/index";
-import { useHistory } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 const StudentsPage = () => {
-  const history = useHistory();
   return (
     <motion.div
       initial={{ opacity: 0 }}

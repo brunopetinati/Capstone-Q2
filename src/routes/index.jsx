@@ -13,6 +13,10 @@ import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 import Activity from "../pages/Activity";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1510769e24625adb2d86b01c489346efa3348205
 import { AnimatePresence } from "framer-motion";
 
 const Routes = () => {
