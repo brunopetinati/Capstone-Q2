@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Home from "./index";
-import store from "./../../store";
+import Home from "../pages/Home/index";
+import store from "../store";
 
 test("renders Home page", () => {
   render(
@@ -9,6 +9,6 @@ test("renders Home page", () => {
       <Home />
     </Provider>
   );
-  const linkElement = screen.getByText(/Lorem ipsum/i);
-  expect(linkElement).toBeInTheDocument();
+  const textElement = screen.getByText(/Somos uma plataforma/i);
+  expect(textElement).toBeInTheDocument();
 });

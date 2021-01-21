@@ -5,14 +5,42 @@
   color: #ffffff;
   font-size: 2rem;
   justify-content: center;
+  align-items: center;
 }
+.userMenu {
+  /* height: 10vh; */
+  display: flex;
 
+  align-items: center;
+  position: absolute;
+  right: 2vw;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 1vw;
+}
+.userName {
+  font-size: 1rem;
+}
 .button {
   margin-right: 5vw;
   color: white;
   text-decoration: none;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 1vw;
+  white-space: nowrap;
 }
+
+.button:hover {
+  color: #da1b2b;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  background-color: white;
+  cursor: pointer;
+}
+
 .headerDesktop {
+  font-weight: 500 !important;
   display: none;
 }
 .headerButtons {
@@ -24,24 +52,70 @@
   align-items: center;
 }
 
-.userMenu {
-  height: 10vh;
+.img img {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+/* .userMenu:hover {
+  color: #da1b2b;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  background-color: white;
+  cursor: pointer;
+} */
+.imagemUser {
+  background-color: #da1b2b;
+  border-radius: 100px;
+}
+.newButton {
   display: flex;
-  align-items: center;
-  position: absolute;
-  right: 2vw;
+  color: #ffffff;
+  transform: scale(1.4);
+  margin-right: 5vw;
+}
+.newButton:hover {
+  color: #da1b2b;
 }
 
-@media screen and (min-width: 768px) {
+.exitButton {
+  font-size: 1.2rem;
+  margin-left: 1vw;
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 1vw;
+  white-space: nowrap;
+}
+
+.exitButton:hover {
+  color: #da1b2b;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  background-color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+  .button {
+    white-space: pre-wrap;
+  }
+}
+@media screen and (min-width: 700px) {
   .headerDesktop {
     display: flex;
+    align-items: center;
     background-color: #da1b2b;
-    height: 111px;
+    height: 12vh;
     color: #ffffff;
     font-size: 2rem;
   }
   .headerMobile {
     display: none;
+  }
+
+  .button {
+    font-size: 1.5rem;
   }
 }
 
@@ -56,7 +130,7 @@
     cursor: pointer;
   }
   .userMenu {
-    height: 7vh;
+    /* height: 7vh; */
     display: flex;
     align-items: center;
     position: absolute;
@@ -64,9 +138,10 @@
   }
 
   .headerDesktop {
+    box-sizing: content-box;
     display: flex;
     background-color: #da1b2b;
-    height: 7vh;
+    height: 8vh;
     color: #ffffff;
     font-size: 1.5rem;
   }

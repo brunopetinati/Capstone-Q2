@@ -13,6 +13,7 @@ import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
 import Activity from "../pages/Activity";
+import Header from "../components/Header/index";
 import { AnimatePresence } from "framer-motion";
 
 const Routes = () => {
@@ -32,7 +33,7 @@ const Routes = () => {
           <Register />
         </Route>
 
-        {state.token !== "" ? (
+        {state.token ? (
           <>
             <Route exact path="/studentregister">
               <StudentRegister />
@@ -40,7 +41,7 @@ const Routes = () => {
             <Route exact path="/students">
               <Students />
             </Route>
-            <Route exact path="/profile">
+            <Route exact path="/students/:id">
               <ProfilePage />
             </Route>
             <Route exact path="/activitiesregister">

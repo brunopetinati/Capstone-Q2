@@ -14,15 +14,6 @@ const StudentsPage = () => {
     >
       <Background>
         <Students />
-
-        <SmallContainer>
-          <Button onClick={() => history.push("/studentregister")}>
-            Cadastrar Novo Aluno
-          </Button>
-          <Button onClick={() => history.push("/profile")}>
-            Ver perfil de alunos
-          </Button>
-        </SmallContainer>
       </Background>
     </motion.div>
   );
