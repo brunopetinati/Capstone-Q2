@@ -1,5 +1,3 @@
-//import { yupResolver } from "@hookform/resolvers/yup";
-
 import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -21,13 +19,12 @@ const Login = (props) => {
       .required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, setValue, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
   const handleForm = (data) => {
     dispatch(loginThunk(data, history));
-    // history.push("/");
   };
 
   return (

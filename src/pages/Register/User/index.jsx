@@ -25,7 +25,7 @@ const User = (props) => {
       .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
-  const { register, handleSubmit, setValue, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -35,9 +35,6 @@ const User = (props) => {
 
   const handleForm = (data) => {
     dispatch(userThunk(data, history));
-    console.log(data);
-    console.log(errors);
-    // history.push("/login");
   };
 
   return (
