@@ -9,6 +9,6 @@ test("renders Home page", () => {
       <Home />
     </Provider>
   );
-  const linkElement = screen.getByText(/Lorem ipsum/i);
+  const linkElement = screen.getByText(/Somos uma plataforma/i);
   expect(linkElement).toBeInTheDocument();
 });
