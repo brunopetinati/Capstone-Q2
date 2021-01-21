@@ -10,3 +10,9 @@ export const Box = styled.div`
     margin-top: 5vh;
   }
 `;
+
+export const Fix = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1vh;
+`;

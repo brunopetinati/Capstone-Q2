@@ -20,49 +20,47 @@ import {Button} from '../../Login/style';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '50%',
-    '& > * + *':{
+    width: "50%",
+    "& > * + *": {
       marginTop: theme.spacing(2),
-    }
-  }
-}))
+    },
+  },
+}));
 
 const StudentRegister = () => {
   const [alertState, setAlertState] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const schema = yup.object().shape({
-      name: yup.string().required("Campo Obrigatório"),
-      group: yup.string().required("Campo Obrigatório"),
-      postscript: yup.string()
-  })
-  const {register, handleSubmit, errors} = useForm({
-    resolver: yupResolver(schema)
-  })
+    name: yup.string().required("Campo Obrigatório"),
+    group: yup.string().required("Campo Obrigatório"),
+    postscript: yup.string(),
+  });
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const handleForm = (data, event) =>{
-    dispatch(registerStudentsThunk(data))
-    setAlertState(true)
-    event.target.reset()
-
-  }
-  alertState && setTimeout(() => setAlertState(false), 3000)
+  const handleForm = (data, event) => {
+    dispatch(registerStudentsThunk(data));
+    setAlertState(true);
+    event.target.reset();
+  };
+  alertState && setTimeout(() => setAlertState(false), 3000);
 
   return (
     <Container>
       <Form onSubmit={handleSubmit(handleForm)}>
       {alertState && <AlertFlag severity="success" text="Aluno cadastrado com sucesso"/>}
         <Title>Cadastrar Aluno</Title>
-        <Input name="name" placeholder="Nome" ref={register}/>
+        <Input name="name" placeholder="Nome" ref={register} />
         {errors.name && <Error>{errors.name.message}</Error>}
-        <Input name="group" placeholder="Turma" ref={register}/>
+        <Input name="group" placeholder="Turma" ref={register} />
         {errors.group && <Error>{errors.group.message}</Error>}
         <TextArea name="postscript" placeholder="Observações" ref={register}/>
         <ButtonContainer>
-          <Button onClick={() => history.push('/students')}>Voltar</Button>
+          <Button onClick={() => history.push("/students")}>Voltar</Button>
           <Button type="submit">Cadastrar</Button>
         </ButtonContainer>
-        
       </Form>
     </Container>
   );
