@@ -10,12 +10,16 @@
 .userMenu {
   /* height: 10vh; */
   display: flex;
+
   align-items: center;
   position: absolute;
   right: 2vw;
   transition: 0.5s;
   border-radius: 10px;
   padding: 1vw;
+}
+.userName {
+  font-size: 1rem;
 }
 .button {
   margin-right: 5vw;
@@ -52,13 +56,13 @@
   margin-left: 50%;
   transform: translateX(-50%);
 }
-.userMenu:hover {
+/* .userMenu:hover {
   color: #da1b2b;
   box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
   transform: scale(1.2);
   background-color: white;
   cursor: pointer;
-}
+} */
 .imagemUser {
   background-color: #da1b2b;
   border-radius: 100px;
@@ -71,6 +75,25 @@
 }
 .newButton:hover {
   color: #da1b2b;
+}
+
+.exitButton {
+  font-size: 1.2rem;
+  margin-left: 1vw;
+  color: white;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 1vw;
+  white-space: nowrap;
+}
+
+.exitButton:hover {
+  color: #da1b2b;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  background-color: white;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
@@ -89,6 +112,10 @@
   }
   .headerMobile {
     display: none;
+  }
+
+  .button {
+    font-size: 1.5rem;
   }
 }
 
@@ -111,9 +138,10 @@
   }
 
   .headerDesktop {
+    box-sizing: content-box;
     display: flex;
     background-color: #da1b2b;
-    height: 7vh;
+    height: 8vh;
     color: #ffffff;
     font-size: 1.5rem;
   }
