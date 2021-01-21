@@ -45,7 +45,6 @@ export const Container = styled.div`
   width: 80vw;
   height: 350px;
   background-color: #fff;
-  padding: 2%;
   margin: auto;
   border-radius: 20px;
   display: flex;
@@ -82,7 +81,7 @@ export const Button = styled.button`
   width: 15vw;
   border-radius: 10px;
   font-weight: 100;
-  margin-top: 10%;
+  margin-top: 5% !important;
   margin: 0 auto;
   outline: none;
   cursor: pointer;

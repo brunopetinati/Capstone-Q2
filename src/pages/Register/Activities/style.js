@@ -38,11 +38,7 @@ export const Input = styled.input`
     border: 1px solid rgba(0, 96, 206, 1);
   }
   @media (max-width: 600px) {
-<<<<<<< HEAD
     width: 75vw;
-=======
-    width: 40w;
->>>>>>> 1510769e24625adb2d86b01c489346efa3348205
     height: 3vh;
     margin-top: 1%;
   }
@@ -50,11 +46,7 @@ export const Input = styled.input`
 export const Date = styled(Input)`
   width: 10vw;
   @media (max-width: 600px) {
-<<<<<<< HEAD
     width: 75vw;
-=======
-    width: 25vw;
->>>>>>> 1510769e24625adb2d86b01c489346efa3348205
     height: 3vh;
     margin-top: 1%;
   }
