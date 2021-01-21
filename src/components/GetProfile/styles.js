@@ -7,6 +7,11 @@ export const Container = styled.div`
   justify-content: space-between;
   margin-top: 4vh;
   margin-left: 4vw;
+  @media(max-width: 600px){
+    width: 78vw;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Name = styled.h1`
@@ -19,6 +24,9 @@ export const Name = styled.h1`
   text-decoration: none;
   font-style: italic;
   font-variant: small-caps;
+  @media(max-width: 600px){
+    font-size: 1.2rem;
+  }
 `;
 export const Group = styled.h1`
   font-family: "Courier New", Courier, monospace;

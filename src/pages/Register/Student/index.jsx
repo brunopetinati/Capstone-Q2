@@ -1,22 +1,22 @@
-import { useDispatch } from "react-redux";
-import { registerStudentsThunk } from "../../../store/modules/students/thunk";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import Alert from "@material-ui/lab/Alert";
-import { makeStyles } from "@material-ui/core/styles";
+import {useDispatch} from 'react-redux';
+import {registerStudentsThunk} from '../../../store/modules/students/thunk';
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useForm} from 'react-hook-form';
+import AlertFlag from '../../../components/AlertFlag';
+import {makeStyles} from '@material-ui/core/styles';
 import {
   Container,
   Form,
   Input,
   TextArea,
   ButtonContainer,
-  Button,
   Title,
-  Error,
-} from "./style";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
+  Error
+} from './style';
+import {useHistory} from 'react-router-dom';
+import {useState} from 'react';
+import {Button} from '../../Login/style';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const StudentRegister = () => {
-  const classes = useStyles();
   const [alertState, setAlertState] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -51,16 +50,13 @@ const StudentRegister = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit(handleForm)}>
-        {alertState && (
-          <Alert severity="success">Aluno Cadastrado com Sucesso</Alert>
-        )}
+      {alertState && <AlertFlag severity="success" text="Aluno cadastrado com sucesso"/>}
         <Title>Cadastrar Aluno</Title>
         <Input name="name" placeholder="Nome" ref={register} />
         {errors.name && <Error>{errors.name.message}</Error>}
         <Input name="group" placeholder="Turma" ref={register} />
         {errors.group && <Error>{errors.group.message}</Error>}
-        <TextArea name="postscript" placeholder="Observações" ref={register} />
-        {errors.postscript && <Error>{errors.postscript.message}</Error>}
+        <TextArea name="postscript" placeholder="Observações" ref={register}/>
         <ButtonContainer>
           <Button onClick={() => history.push("/students")}>Voltar</Button>
           <Button type="submit">Cadastrar</Button>

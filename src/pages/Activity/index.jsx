@@ -13,10 +13,12 @@ import {
     ListContainer,
     Subtitle
 } from './style';
-import {Button} from '../Register/Activities/style';
+import {Button} from '../Login/style';
+import {useHistory} from 'react-router-dom';
 
 const Activity = () =>{
     const {id} = useParams();
+    const history = useHistory();
     const activities = useSelector(state => state.activities);
     const activity = activities.filter((activity) => activity.id.toString() === id);
 
@@ -35,20 +37,20 @@ const Activity = () =>{
                                 <Title>{name}</Title>
                                 <Date>{date}</Date>
                             </Header>
-                            <StyledLink href={link} target="blank">Link da Atividade</StyledLink>
+                           { link && <StyledLink href={link} target="blank">Link da Atividade</StyledLink>}
                             <Subtitle>Descrição</Subtitle>
                             <Description>{description}</Description>
                             <ListContainer>
                                 <List>
                                     <Subtitle>Alunos</Subtitle>
-                                {students.map((student, index) =>{
+                                {students && students.map((student, index) =>{
                                     return(
                                         <ListItem key={index}>{student}</ListItem>
                                     )
                                 })}
                                 </List>
                             </ListContainer>
-                            <Button>Voltar</Button>
+                            <Button onClick={() => history.push("/activities")}>Voltar</Button>
                         </div>
                         )
                 })}
