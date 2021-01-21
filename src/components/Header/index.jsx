@@ -18,7 +18,6 @@ const Header = () => {
     }
     return null;
   }
-  console.log(decoded(token));
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
