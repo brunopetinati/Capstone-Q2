@@ -50,7 +50,7 @@ const Button = styled.button`
     width: 70vw;
     height: 6vh;
     margin-top: 3vh;
-    margin-left: 3vh;
+    margin-left: 0;
     font-size: 20px;
   }
 
@@ -61,7 +61,7 @@ const Button = styled.button`
     transition: 0.8s;
   }
 `;
-export const Title = styled.h2`
+export const Title = styled.h1`
   font-family: "Nunito", sans-serif;
   color: #1d3557;
   margin-top: 1%;
@@ -89,7 +89,7 @@ const Input = styled.input`
     width: 70vw;
     height: 3vh;
     margin-top: 3vh;
-    margin-left: 3vh;
+    /* margin-left: 3vh; */
   }
 `;
 export { Container, FormContainer, Input, Button };

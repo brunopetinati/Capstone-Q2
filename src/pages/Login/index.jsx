@@ -1,5 +1,3 @@
-//import { yupResolver } from "@hookform/resolvers/yup";
-
 import loginThunk from "../../store/modules/login/thunk";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -7,6 +5,7 @@ import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const Login = (props) => {
   const history = useHistory();
@@ -20,13 +19,12 @@ const Login = (props) => {
       .required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit, setValue, errors } = useForm({
-    validationSchema: schema,
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
   });
 
   const handleForm = (data) => {
     dispatch(loginThunk(data, history));
-    // history.push("/");
   };
 
   return (

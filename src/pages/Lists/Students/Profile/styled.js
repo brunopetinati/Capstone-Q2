@@ -5,7 +5,7 @@ export const Background = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #b8d3ff;
+  background-color: #a8dadc;
   width: 100vw;
   height: 100vh;
 `;
@@ -18,7 +18,7 @@ export const Box = styled.div`
   width: 60vw;
   height: 55vh;
   border-radius: 50px;
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 80vw;
     height: 80vh;
   }

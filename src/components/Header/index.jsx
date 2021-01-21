@@ -18,7 +18,6 @@ const Header = () => {
     }
     return null;
   }
-  console.log(decoded(token));
   const state = useSelector((state) => state.login);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -50,13 +49,13 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="headerMobile">
+          <div className="headerMobileOff">
             <Button
               aria-controls="fade-menu"
               aria-haspopup="true"
               onClick={handleClick}
             >
-              <MenuRoundedIcon style={{ fontSize: "40", color: "white" }} />
+              <MenuRoundedIcon style={{ fontSize: "4rem", color: "white" }} />
             </Button>
             <Menu
               id="fade-menu"
@@ -121,7 +120,7 @@ const Header = () => {
               <MenuItem>Logout</MenuItem>
             </Menu>
           </div>
-          <div className="headerMobile">
+          <div className="headerMobileOn">
             <Button
               aria-controls="fade-menu"
               aria-haspopup="true"
@@ -145,6 +144,24 @@ const Header = () => {
                 Meus Alunos
               </MenuItem>
             </Menu>
+            <div className="userMenu">
+              <img
+                src="https://curatti.com/wp-content/uploads/2017/05/generic-avatar-image1.png"
+                alt="userAvatar"
+                width="25vw"
+              />
+              <div className="userName">{decoded(token).email}</div>
+
+              <div
+                className="exitButton"
+                onClick={() => {
+                  window.localStorage.removeItem("authToken");
+                  window.location.reload();
+                }}
+              >
+                Sair
+              </div>
+            </div>
           </div>
         </>
       )}
