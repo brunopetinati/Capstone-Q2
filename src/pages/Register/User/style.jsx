@@ -61,7 +61,7 @@ const Button = styled.button`
     transition: 0.8s;
   }
 `;
-export const Title = styled.h2`
+export const Title = styled.h1`
   font-family: "Nunito", sans-serif;
   color: #1d3557;
   margin-top: 1%;
