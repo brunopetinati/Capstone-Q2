@@ -17,7 +17,6 @@ const Students = () => {
 
   useEffect(() => {
     dispatch(getStudentsThunk());
-    setAlertState(true)
   }, [dispatch]);
 
   const page = students.slice(lastIndex, nextPage);

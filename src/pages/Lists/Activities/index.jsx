@@ -5,7 +5,7 @@ import {listActivitiesThunk, deleteActivitiesThunk} from '../../../store/modules
 import { motion } from "framer-motion";
 import Table from '../../../components/Table';
 import Pages from '../../../components/pagination';
-import {PagesContainer} from './style';
+import {PagesContainer, Container} from './style';
 
 const Activities = () => {
   const dispatch = useDispatch();
@@ -33,8 +33,9 @@ const Activities = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
-    >    
-    {alertState && <AlertFlag severity="success" text="Atividade excluida com sucesso"/>}
+    > 
+      <Container>
+        
         <PagesContainer>
           <Pages 
             items={activities}
@@ -44,8 +45,7 @@ const Activities = () => {
             nextPage={nextPage}
             />
         </PagesContainer>
-         
-        
+        {alertState && <AlertFlag severity="success" text="Atividade excluida com sucesso"/>}
         <Table
         title="Atividades"
         info="Data"
@@ -57,6 +57,7 @@ const Activities = () => {
         registerRoute="activitiesregister"
         handleRemove={handleExclusion}
         />
+        </Container>  
     </motion.div>
   );
 };
