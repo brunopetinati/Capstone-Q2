@@ -9,7 +9,7 @@ const AnimatedPresence = () => (
   ></motion.div>
 
   //para o corretor: a intenção desse componente era fazer apenas um componente importado em volta
-  //do app, para não preciasr importar o {motion} em todas as páginas. Porém, não consegui fazer isso e tive
+  //do app, para não precisar importar o {motion} em todas as páginas. Porém, não consegui fazer isso e tive
   //que importar
 );
 
