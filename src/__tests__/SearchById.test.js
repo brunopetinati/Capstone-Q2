@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import SearchById from "./index";
-import store from "./../../store";
+import SearchById from "../components/SearchById/index";
+import store from "../store";
 
 test("renders SearchById component", () => {
   render(
