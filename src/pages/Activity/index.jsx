@@ -13,7 +13,7 @@ import {
     ListContainer,
     Subtitle
 } from './style';
-import {Button} from '../Register/Activities/style';
+import {Button} from '../Login/style';
 import {useHistory} from 'react-router-dom';
 
 const Activity = () =>{

@@ -14,13 +14,13 @@ import {
   MainInfo,
   TextArea,
   ButtonContainer,
-  Button,
   Title,
   Error,
   List,
   Date
 } from './style';
-import {motion} from 'framer-motion'
+import {motion} from 'framer-motion';
+import {Button} from '../../Login/style';
 
 const ActivitiesRegister = () => {
   const [alertState, setAlertState] = useState(false);
@@ -66,14 +66,20 @@ const ActivitiesRegister = () => {
       {alertState && <AlertFlag severity="success" text="Atividade Cadastrada com Sucesso"/>}
         <Title>Cadastrar</Title>
         <MainInfo>
-          <Input name="name" placeholder="Atividade" ref={register} />
-          {errors.activity && <Error>{errors.activity.message}</Error>}
-          <Date name="date" type="date" ref={register} />
-          {errors.date && <Error>{errors.date.message}</Error>}
+          <div>
+            {errors.name && <Error>{errors.name.message}</Error>}
+            <Input name="name" placeholder="Atividade" ref={register} />
+            
+          </div>
+          <div>
+            {errors.date && <Error>{errors.date.message}</Error>}
+            <Date name="date" type="date" ref={register} style={{width: "10vw"}} />
+          </div>
+          
+          
         </MainInfo>        
         
         <TextArea name="description" placeholder="Descrição" ref={register}/>
-        {errors.description && <Error>{errors.description.message}</Error>}
         <h3>Alunos</h3>
             <List>
               {students.map(({name, group}, index) =>{
@@ -82,8 +88,7 @@ const ActivitiesRegister = () => {
                 )
               })}
             </List>
-        <Input name="link" placeholder="Link da atividade" style={{width: "65vw"}} ref={register}/>
-        {errors.link && <Error>{errors.link.message}</Error>}
+        <Input name="link" placeholder="Link da atividade" style={{width: "64vw"}} ref={register}/>
         <ButtonContainer>
           <Button onClick={() => history.push('/activities')}>Voltar</Button>
           <Button type="submit">Cadastrar</Button>

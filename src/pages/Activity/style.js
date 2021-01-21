@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 
 export const Container = styled.div `
     width: 70vw;
     background-color: #fff;
-    border-radius: 5%;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     margin: 3% auto;
