@@ -17,6 +17,8 @@ body {
   width: 80vw;
   text-align: center;
   margin-right: 5vw;
+  font-size: 2rem;
+  font-weight: bolder;
 }
 
 .img {

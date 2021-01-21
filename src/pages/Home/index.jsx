@@ -18,19 +18,8 @@ const Home = () => {
           />
         </div>
         <div className="bodyText">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          eligendi laborum minus quos a at dolor repellendus, iusto numquam
-          exercitationem neque impedit quas, itaque earum temporibus commodi
-          quasi. Quos, sint. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Facere eligendi laborum minus quos a at dolor repellendus, iusto
-          numquam exercitationem neque impedit quas, itaque earum temporibus
-          commodi quasi. Quos, sint. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Facere eligendi laborum minus quos a at dolor
-          repellendus, iusto numquam exercitationem neque impedit quas, itaque
-          earum temporibus commodi quasi. Quos, sint. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Facere eligendi laborum minus quos a at
-          dolor repellendus, iusto numquam exercitationem neque impedit quas,
-          itaque earum temporibus commodi quasi. Quos, sint.
+          Somos uma plataforma dedicada a ajudar professores a organizar suas
+          atividades, turmas e alunos de uma maneira simples e acessível.
         </div>
       </div>
     </motion.div>
