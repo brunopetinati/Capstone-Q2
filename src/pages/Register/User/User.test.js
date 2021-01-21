@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import User from "./index";
 import store from "./../../../store";
 
-test("renders learn react link", () => {
+test("renders registering page", () => {
   render(
     <Provider store={store}>
       <User />

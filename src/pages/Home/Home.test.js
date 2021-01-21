@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Login from "./index";
+import Home from "./index";
 import store from "./../../store";
 
-test("renders login page", () => {
+test("renders Home page", () => {
   render(
     <Provider store={store}>
-      <Login />
+      <Home />
     </Provider>
   );
-  const linkElement = screen.getByText(/Login/i);
+  const linkElement = screen.getByText(/Lorem ipsum/i);
   expect(linkElement).toBeInTheDocument();
 });
