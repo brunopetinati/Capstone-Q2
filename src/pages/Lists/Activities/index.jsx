@@ -34,6 +34,7 @@ const Activities = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
     >    
+    {alertState && <AlertFlag severity="success" text="Atividade excluida com sucesso"/>}
         <PagesContainer>
           <Pages 
             items={activities}
@@ -44,7 +45,7 @@ const Activities = () => {
             />
         </PagesContainer>
          
-        {alertState && <AlertFlag severity="success" text="Atividade excluida com sucesso"/>}
+        
         <Table
         title="Atividades"
         info="Data"

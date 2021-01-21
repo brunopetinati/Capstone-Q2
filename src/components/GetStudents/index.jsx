@@ -5,6 +5,7 @@ import AlertFlag from '../AlertFlag';
 import Table from '../Table';
 import Pages from '../pagination';
 import {Box} from './styles';
+import {deleteStudentsThunk} from '../../store/modules/students/thunk';
 
 const Students = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,10 @@ const Students = () => {
 
   const page = students.slice(lastIndex, nextPage);
   
+  const handleExclusion = (id) =>{
+    dispatch(deleteStudentsThunk(id))
+    setAlertState(true)
+  }
 
   alertState && setTimeout(() => setAlertState(false), 3000)
   return (
@@ -34,6 +39,7 @@ const Students = () => {
         nextPage={nextPage}
         />
         </Box>
+
         {alertState && <AlertFlag severity="success" text="Aluno excluido com sucesso"/>}
         
         <Table
@@ -45,6 +51,7 @@ const Students = () => {
         data={page}
         detailsRoute="students"
         registerRoute="studentregister"
+        handleRemove={handleExclusion}
         />
         
     </>

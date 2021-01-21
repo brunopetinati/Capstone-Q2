@@ -24,3 +24,13 @@ export const registerStudentsThunk = (data) => (dispatch) =>{
   .then(res => dispatch(registerStudents(res.data)))
   .catch(err => console.log(err))
 }
+
+export const deleteStudentsThunk = (id) => (dispatch) =>{
+  api.delete(`/students/${id}`)
+      .then(res => { res.status === 200 &&
+          api.get("/students")
+              .then(res => dispatch(getStudents(res.data)))
+              .catch(err => console.log(err))}
+      )
+      .catch(err => console.log(err))
+}
