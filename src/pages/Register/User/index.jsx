@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import { motion } from "framer-motion";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const User = (props) => {
   const schema = yup.object().shape({
@@ -21,11 +22,11 @@ const User = (props) => {
 
     passwordConfirm: yup
       .string()
-      .oneOf([yup.ref("password")], "senhas diferentes"),
+      .oneOf([yup.ref("password")], "Senhas diferentes"),
   });
 
   const { register, handleSubmit, setValue, errors } = useForm({
-    validationSchema: schema,
+    resolver: yupResolver(schema),
   });
 
   const history = useHistory();
@@ -35,6 +36,7 @@ const User = (props) => {
   const handleForm = (data) => {
     dispatch(userThunk(data, history));
     console.log(data);
+    console.log(errors);
     // history.push("/login");
   };
 

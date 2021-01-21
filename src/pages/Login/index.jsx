@@ -7,6 +7,7 @@ import { Container, FormContainer, Input, Button, Title, Error } from "./style";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const Login = (props) => {
   const history = useHistory();
@@ -21,7 +22,7 @@ const Login = (props) => {
   });
 
   const { register, handleSubmit, setValue, errors } = useForm({
-    validationSchema: schema,
+    resolver: yupResolver(schema),
   });
 
   const handleForm = (data) => {

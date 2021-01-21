@@ -50,7 +50,7 @@ const Button = styled.button`
     width: 70vw;
     height: 6vh;
     margin-top: 3vh;
-    margin-left: 3vh;
+    margin-left: 0;
     font-size: 20px;
   }
 
@@ -89,7 +89,7 @@ const Input = styled.input`
     width: 70vw;
     height: 3vh;
     margin-top: 3vh;
-    margin-left: 3vh;
+    /* margin-left: 3vh; */
   }
 `;
 export { Container, FormContainer, Input, Button };

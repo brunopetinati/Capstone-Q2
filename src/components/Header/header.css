@@ -1,10 +1,19 @@
-.headerMobile {
+.headerMobileOff {
   display: flex;
   background-color: #da1b2b;
   height: 7vh;
   color: #ffffff;
   font-size: 2rem;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+.headerMobileOn {
+  display: flex;
+  background-color: #da1b2b;
+  height: 7vh;
+  color: #ffffff;
+  font-size: 2rem;
+  justify-content: space-between;
   align-items: center;
 }
 .userMenu {
@@ -30,7 +39,6 @@
   padding: 1vw;
   white-space: nowrap;
 }
-
 .button:hover {
   color: #da1b2b;
   box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
@@ -96,7 +104,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1050px) {
   .button {
     white-space: pre-wrap;
   }
@@ -110,7 +118,10 @@
     color: #ffffff;
     font-size: 2rem;
   }
-  .headerMobile {
+  .headerMobileOn {
+    display: none;
+  }
+  .headerMobileOff {
     display: none;
   }
 
@@ -138,14 +149,17 @@
   }
 
   .headerDesktop {
-    box-sizing: content-box;
+    /* box-sizing: content-box; */
     display: flex;
     background-color: #da1b2b;
-    height: 8vh;
+    height: 10vh;
     color: #ffffff;
     font-size: 1.5rem;
   }
   .headerMobile {
     display: none;
+  }
+  .button {
+    font-size: 2rem;
   }
 }
