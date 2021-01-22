@@ -8,8 +8,8 @@ import userEvent from "@testing-library/user-event";
 jest.mock("axios");
 const mockedAxios = axios;
 
-describe(" ", () => {
-  test("Should return the word professores in the home page.", async () => {
+describe("When the user sign up ", () => {
+  test("Should return the word Login.", async () => {
     const student = [
       {
         register: {

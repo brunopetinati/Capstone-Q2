@@ -9,7 +9,7 @@ jest.mock("axios");
 const mockedAxios = axios;
 
 describe("When the user sign in ", () => {
-  test("Should return the word professores in the home page.", async () => {
+  test("Should return Minhas atividades in the home page.", async () => {
     const student = [
       {
         user: {
