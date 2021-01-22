@@ -10,7 +10,7 @@ const mockedAxios = axios;
 
 describe("When the user signs in ", () => {
   test("Should return Minhas atividades in the home page.", async () => {
-    const student = [
+    const user = [
       {
         user: {
           email: "oi@gmail.com",
@@ -19,7 +19,7 @@ describe("When the user signs in ", () => {
       },
     ];
 
-    mockedAxios.get.mockResolvedValueOnce({ data: { student } });
+    mockedAxios.get.mockResolvedValueOnce({ data: { user } });
 
     render(
       <Provider store={store}>
