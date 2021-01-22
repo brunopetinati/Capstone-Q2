@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const PagesContainer = styled.div `
-    margin: 5% auto;
-    margin-bottom: 0.5%;
-`
-export const Container = styled.div `
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-`
+export const Centralize = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

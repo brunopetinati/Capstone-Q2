@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 jest.mock("axios");
 const mockedAxios = axios;
 
-describe("When the user sign in ", () => {
+describe("When the user signs in ", () => {
   test("Should return Minhas atividades in the home page.", async () => {
     const student = [
       {
@@ -28,7 +28,6 @@ describe("When the user sign in ", () => {
     );
     userEvent.type(screen.getByRole("textbox"), "joana@gmail.com");
     userEvent.click(screen.getByRole("button"));
-    const returnProfessor = screen.queryByText("Minhas Atividades");
     expect("Minhas Atividades").toMatch("Minhas Atividades");
   });
 });

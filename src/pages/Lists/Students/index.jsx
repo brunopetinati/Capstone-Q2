@@ -1,4 +1,4 @@
-import { Background } from "./styled";
+import { Container, Centralize } from "../Activities/style";
 import Students from "../../../components/GetStudents/index";
 
 import { motion } from "framer-motion";
@@ -11,9 +11,11 @@ const StudentsPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 2 }}
     >
-      <Background>
-        <Students />
-      </Background>
+      <Centralize>
+        <Container>
+          <Students />
+        </Container>
+      </Centralize>
     </motion.div>
   );
 };
