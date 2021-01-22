@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 jest.mock("axios");
 const mockedAxios = axios;
 
-describe("When the user sign up ", () => {
+describe("When the user signs up ", () => {
   test("Should return the word Login.", async () => {
     const student = [
       {
@@ -30,7 +30,6 @@ describe("When the user sign up ", () => {
     );
     userEvent.type(screen.queryByTitle("textbox"), "jo@gmail.com");
     userEvent.click(screen.getByRole("button"));
-    const returnProfessor = screen.queryByText("Login");
     expect("Login").toMatch("Login");
   });
 });
