@@ -10,7 +10,7 @@ const mockedAxios = axios;
 
 describe("When the user signs up ", () => {
   test("Should return the word Login.", async () => {
-    const user = [
+    const teacher = [
       {
         register: {
           name: "Joana",
@@ -21,7 +21,7 @@ describe("When the user signs up ", () => {
       },
     ];
 
-    mockedAxios.get.mockResolvedValueOnce({ data: { user } });
+    mockedAxios.get.mockResolvedValueOnce({ data: { teacher } });
 
     render(
       <Provider store={store}>

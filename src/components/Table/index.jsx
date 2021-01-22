@@ -63,9 +63,6 @@ const Table = ({
                 );
               })}
             </StyledTable>
-            {/* <Button onClick={() => history.push(`/${registerRoute}`)}>
-            Cadastrar
-          </Button> */}
           </>
         ) : (
           <>
