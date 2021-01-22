@@ -6,7 +6,7 @@ import Home from "../pages/Home/";
 import Login from "../pages/Login/";
 import Register from "../pages/Register/User/";
 import StudentRegister from "../pages/Register/Student/";
-import Students from "../pages/Lists/Students/";
+import StudentsPage from "../pages/Lists/Students/";
 import ProfilePage from "../pages/Lists/Students/Profile/";
 import ActivitiesRegister from "../pages/Register/Activities/";
 import Activities from "../pages/Lists/Activities";
@@ -35,7 +35,7 @@ const Routes = () => {
               <StudentRegister />
             </Route>
             <Route exact path="/students">
-              <Students />
+              <StudentsPage />
             </Route>
             <Route exact path="/students/:id">
               <ProfilePage />
